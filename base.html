@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% endblock title %} Serhiy Barhamon </title>
-    <link rel="stylesheet" href="css/style.css?cb={{ now() }}">
+    <title>{% block title %} Serhiy Barhamon {% endblock title %}</title>
+        <link rel="stylesheet" href="{{ add_static_file(path="css.css", file_path="./css.css") }}">
     <meta name="description" content="{% block description %}{% endblock description %}">
     <meta property="og:title" content="{% block og_title %}{% endblock og_title %}">
     <meta property="og:type" content="{% block og_type %}{% endblock og_type %}">

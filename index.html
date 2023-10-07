@@ -1,3 +1,5 @@
+{% import "components/link.html" as link %}
+
 {% extends "base.html" %}
 {% block title %}{{ get_title(path = "/") }}{% endblock %}
 {% block description %}{{ get_description(path = "/") }}{% endblock %}
@@ -9,6 +11,7 @@
 {% block content %}
 <div class="container">
   <h1>{{ get_title() }}</h1>
+  {{ link::local_page(path = "/about", template = "about.html", text = "About", title = "About this this blog", description = "About this this blog") }}
 </div>
 {% endblock %}
 

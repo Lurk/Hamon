@@ -10,6 +10,8 @@ body {
   color: var(--lighter);
   font-size: 1em;
   line-height: 1.4;
+  padding: 0;
+  margin: 0;
   font-family:
     Helvetica Neue,
     Arial,
@@ -72,6 +74,11 @@ a:hover {
   gap: 1em;
 }
 
+.column {
+  width: 20em;
+  padding: 1em;
+}
+
 .card {
   flex-grow: 1;
   background-color: var(--dark);
@@ -96,8 +103,36 @@ a:hover {
   }
 }
 
+.with-icon {
+  align-items: center;
+  gap: 0.5em;
+  svg {
+    width: 1em;
+    height: 1em;
+    path {
+      fill: var(--lighter);
+    }
+  }
+}
+
+.icon {
+  fill: var(--lighter);
+}
+
+#footer {
+  background-color: var(--dark);
+  color: var(--lighter);
+  padding: 2em;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+}
+
 @media only screen and (min-width: 69em) {
-  .content-row {
+  #content,
+  #footer {
     display: flex;
     justify-content: center;
   }
@@ -110,9 +145,6 @@ a:hover {
 }
 
 @media only screen and (max-width: 767px) and (orientation: portrait) {
-  body {
-    margin: 0;
-  }
   .container > *:not(div) {
     margin-left: 1rem;
   }

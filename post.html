@@ -1,0 +1,14 @@
+{% import "components/link.html" as link %}
+{% extends "base.html" %}
+{% block title %}{{ title }}{% endblock %}
+{% block description %}{{ description }}{% endblock %}
+{% block og_title %}{{ title }}{% endblock %}
+{% block og_description %}{{ description }}{% endblock %}
+{% block og_image %}{% endblock %}
+{% block og_type %}website{% endblock %}
+{% block og_url %}{{ get_host() }}{% endblock %}
+{% block content %}
+<div class="container">
+  <h1>{{ title }}</h1>
+</div>
+{% endblock %}

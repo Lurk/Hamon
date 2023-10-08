@@ -2,10 +2,10 @@
 {% extends "base.html" %}
 {% block og_image %}{% endblock %}
 {% block og_type %}website{% endblock %}
-{% block og_url %}{{ get_host() }}{% endblock %}
+{% block og_url %}{{ domain }}{% endblock %}
 {% block content %}
-<div class="container">
-  <h1>{{ get_title() }}</h1>
+<div>
+  <h1>Serhiy Barhamon blog</h1>
   <p>HI!</p>
   <p>I'm a software engineer and adventurer. I'm currently working as a team lead at <a href="https://check24.de">Check24</a> in Munich, Germany.</p>
   <h2>Adventures:</h2>
@@ -15,7 +15,7 @@
     <div class="img" style="background-image: url({{ post.content.metadata.image }})"></div>
     <div class="card-body">
       <h3>
-        {{ link::local_page(path=post.pid ~ '.html', template="post.html", text=post.content.metadata.header, title=post.content.metadata.header, description=post.content.metadata.preview) }}
+        {{ link::local_page(path='post/' ~ post.pid ~ '.html', template="post.html", text=post.content.metadata.header, title=post.content.metadata.header, description=post.content.metadata.preview) }}
       </h3>
       <p>{{ post.content.metadata.preview }}</p>
     </div>
@@ -29,14 +29,13 @@
     <div class="img" style="background-image: url({{ post.content.metadata.image }})"></div>
     <div class="card-body">
       <h3>
-        {{ link::local_page(path=post.pid ~ '.html', template="post.html", text=post.content.metadata.header, title=post.content.metadata.header, description=post.content.metadata.preview) }}
+        {{ link::local_page(path='post/' ~ post.pid ~ '.html', template="post.html", text=post.content.metadata.header, title=post.content.metadata.header, description=post.content.metadata.preview) }}
       </h3>
       <p>{{ post.content.metadata.preview }}</p>
     </div>
   </div>
   {% endfor %}
   </div>
-
 </div>
 {% endblock %}
 

@@ -1,14 +1,28 @@
-{% import "components/link.html" as link %}
 {% extends "base.html" %}
-{% block title %}{{ title }}{% endblock %}
-{% block description %}{{ description }}{% endblock %}
-{% block og_title %}{{ title }}{% endblock %}
-{% block og_description %}{{ description }}{% endblock %}
-{% block og_image %}{% endblock %}
-{% block og_type %}website{% endblock %}
-{% block og_url %}{{ get_host() }}{% endblock %}
+{% import "components/link.html" as link %}
+
+
+{% block og_image %}
+  {% set post = get_post_by_path( path = path ) %}
+  {{ post.content.metadata.image }}
+{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_url %}{{ domain }}{% endblock %}
 {% block content %}
 <div class="container">
-  <h1>{{ title }}</h1>
+  <div class="post">
+    <div class="img head" style="background-image: url('{{ post.content.metadata.image }}')">
+      <div>
+        <h1>{{ title }}</h1>
+      </div>
+      <div>
+        {% for tag in post.content.metadata.tags %}
+        {{ link::local_page(path='/tag/' ~ tag ~ '.html', template="tag.html", text=tag, title='all posts with tag: ' ~ tag, description='all posts with tag: ' ~ tag) }}
+        {% endfor %}
+      </div>
+    </div>
+    
+
+  </div>
 </div>
 {% endblock %}

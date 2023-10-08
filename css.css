@@ -79,6 +79,15 @@ a:hover {
   padding: 1em;
 }
 
+.img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50%;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.28571429rem 0.28571429rem 0 0;
+}
+
 .card {
   flex-grow: 1;
   background-color: var(--dark);
@@ -87,12 +96,6 @@ a:hover {
   width: 20em;
   .img {
     height: 10em;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50%;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 0.28571429rem 0.28571429rem 0 0;
   }
   .card-body {
     padding: 1em;
@@ -117,6 +120,29 @@ a:hover {
 
 .icon {
   fill: var(--lighter);
+}
+
+.container {
+  display: flex;
+}
+
+.post {
+  width: 62em;
+  margin: 1em;
+  background-color: var(--dark);
+  border-radius: 0.28571429rem;
+  .img {
+    height: 31em;
+  }
+  .head {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .head > div {
+    background-color: rgba(65, 65, 65, 0.5);
+    text-align: center;
+  }
 }
 
 #footer {
@@ -156,11 +182,19 @@ a:hover {
     padding: 0;
   }
 
-  .card {
+  .post {
+    margin: 0;
     border-radius: 0;
     .img {
-      border-radius: 0;
+      height: 15em;
     }
+  }
+
+  .card {
+    border-radius: 0;
+  }
+  .img {
+    border-radius: 0;
   }
 }
 

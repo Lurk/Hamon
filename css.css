@@ -151,6 +151,17 @@ a:hover {
   .row {
     flex-wrap: wrap;
   }
+
+  #footer {
+    padding: 0;
+  }
+
+  .card {
+    border-radius: 0;
+    .img {
+      border-radius: 0;
+    }
+  }
 }
 
 @media print,

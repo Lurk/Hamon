@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ add_static_file(path="/css.css", file_path="./css.css") }}">
     <meta name="description" content="{{ description }}">
     <meta property="og:title" content="{{ title }}">
-    <meta property="og:type" content="{% block og_type %}{% endblock og_type %}">
+    <meta property="og:type" content="{% block og_type %}website{% endblock og_type %}">
     <meta property="og:url" content="{% block og_url %}{% endblock og_url %}">
     <meta property="og:image" content="{% block og_image %}{% endblock og_image %}">
     <link rel="icon" href="/favicon.ico?cb={{ now() }}" sizes="any">
@@ -27,11 +27,11 @@
                 <h4>Subscribe by:</h4>
                 <div class="row with-icon">
                     {% include "components/icons/json_feed.html" %} 
-                    <a href="{{ domain }}">JSON Feed</a>
+                    <a href="{{ config.domain }}">JSON Feed</a>
                 </div>
                 <div class="row with-icon">
                     {% include "components/icons/rss.html" %}
-                    <a href="{{ domain }}">RSS</a>
+                    <a href="{{ config.domain }}">RSS</a>
                 </div>
             </div>
             <div class="column">

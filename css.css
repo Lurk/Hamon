@@ -104,6 +104,11 @@ a:hover {
     margin: 0;
     font-size: 1.5em;
   }
+  .timestamp {
+    font-size: 0.8em;
+    margin-top: 0;
+    color: var(--medium);
+  }
 }
 
 .with-icon {

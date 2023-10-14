@@ -8,7 +8,7 @@ body {
 
   background-color: var(--darker);
   color: var(--lighter);
-  font-size: 1em;
+  font-size: 1.2em;
   line-height: 1.4;
   padding: 0;
   margin: 0;
@@ -71,12 +71,12 @@ a:hover {
 
 .row {
   display: flex;
-  gap: 1em;
+  gap: 1rem;
 }
 
 .column {
-  width: 20em;
-  padding: 1em;
+  width: 20rem;
+  padding: 1rem;
 }
 
 .img {
@@ -93,12 +93,12 @@ a:hover {
   background-color: var(--dark);
   border: none;
   border-radius: 0.28571429rem;
-  width: 20em;
+  width: 20rem;
   .img {
-    height: 10em;
+    height: 10rem;
   }
   .card-body {
-    padding: 1em;
+    padding: 1rem;
   }
   h3 {
     margin: 0;
@@ -113,10 +113,10 @@ a:hover {
 
 .with-icon {
   align-items: center;
-  gap: 0.5em;
+  gap: 0.5rem;
   svg {
-    width: 1em;
-    height: 1em;
+    width: 1rem;
+    height: 1rem;
     path {
       fill: var(--lighter);
     }
@@ -132,14 +132,18 @@ a:hover {
 }
 
 .post {
-  width: 62em;
-  margin: 1em;
+  width: 62rem;
+  margin: 1rem;
   background-color: var(--dark);
   border-radius: 0.28571429rem;
-  .img {
-    height: 31em;
+  img {
+    width: 100%;
+  }
+  p {
+    padding: 0 1em;
   }
   .head {
+    height: 31rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -149,8 +153,8 @@ a:hover {
     text-align: center;
   }
   .tag {
-    margin: 1em 0.5em;
-    padding: 0.5em;
+    margin: 1rem 0.5rem;
+    padding: 0.5rem;
     border-radius: 0.28571429rem;
     background-color: var(--dark);
     color: var(--lighter);
@@ -161,12 +165,12 @@ a:hover {
 #footer {
   background-color: var(--dark);
   color: var(--lighter);
-  padding: 2em;
+  padding: 2rem;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2em;
+  margin-top: 2rem;
 }
 
 @media only screen and (min-width: 69em) {
@@ -199,7 +203,7 @@ a:hover {
     margin: 0;
     border-radius: 0;
     .img {
-      height: 15em;
+      height: 15rem;
     }
   }
 

@@ -1,30 +1,30 @@
 {% extends "base.html" %}
 {% import "components/link.html" as link %}
+{% import "components/yamd.html" as yamd %}
 
-{% block og_image %}
+{% block og_image -%}
   {% set post = get_post_by_path( path = path ) %}
-  {{ post.content.metadata.image }}
-{% endblock %}
+  {{ post.content.metadata.image | safe }}
+{% endblock -%}
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ config.domain }}{% endblock %}
-{% block content %}
+{% block content -%}
 <div class="container">
   <div class="post">
-    <div class="img head" style="background-image: url('{{ post.content.metadata.image }}')">
+    <div class="img head" style="background-image: url('{{ post.content.metadata.image | safe }}')">
       <div>
         <h1>{{ title }}</h1>
       </div>
       <div>
-        {% for tag in post.content.metadata.tags %}
+        {% for tag in post.content.metadata.tags -%}
         <div class="tag with-icon">
-        {% include "components/icons/tag.html" %}
+        {% include "components/icons/tag.html" -%}
         {{ link::local_page(path='/tag/' ~ tag ~ '.html', template="tag.html", text=tag, title='all posts with tag: ' ~ tag, description='all posts with tag: ' ~ tag) }}
         </div>
         {% endfor %}
       </div>
     </div>
-    
-
+    {{ yamd::yamd(nodes=post.content.nodes) }}
   </div>
 </div>
 {% endblock %}

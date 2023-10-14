@@ -1,0 +1,64 @@
+{%- macro yamd(nodes) -%}
+{%- for node in nodes -%}
+{%- if node.type == "P" -%}
+{{ yamd::P(nodes=node.nodes) }}
+{%- elif node.type == 'H' -%}
+<h{{ node.level }}>{{ node.text }}</h{{ node.level }}>
+{%- elif node.type == 'Image' -%}
+{{ yamd::Image(node=node) }}
+{%- endif -%}
+{%- endfor -%}
+{%- endmacro yamd -%}
+
+{%- macro P(nodes) -%}
+<p>
+  {%- for node in nodes -%}
+  {%- if node.type == 'A' -%}
+  <a>{{ node.text }}</a>
+  {%- elif node.type == 'Text' -%}
+  {{ node.text }}
+  {%- elif node.type == 'B' -%}
+  {{ yamd::B(nodes=node.nodes) }}
+  {%- elif node.type == 'I' -%}
+  {{ yamd::I(node=node) }}
+  {%- elif node.type == 'S' -%}
+  {{ yamd::S(node=node) }}
+  {%- elif node.type == 'InlineCode' -%}
+  {{ yamd::InlineCode(node=node) }}
+  {%- endif -%}
+  {%- endfor -%}
+</p>
+{%- endmacro P -%}
+
+
+{%- macro B(nodes) -%}
+{%- for node in nodes -%}
+<b>
+  {%- if node.type == 'Text' -%}
+  {{ node.text }}
+  {%- elif node.type == 'S' -%}
+  {{ yamd::S(node=node) }}
+  {%- elif node.type == 'I' -%}
+  {{ yamd::I(node=node) }}
+  {%- endif -%}
+</b>
+{%- endfor -%}
+{%- endmacro B -%}
+
+{%- macro I(node) -%}
+<i>{{ node.text }}</i>
+{%- endmacro I -%}
+
+{%- macro S(node) -%}
+<s>{{ node.text }}</s>
+{%- endmacro S -%}
+
+{%- macro InlineCode(node) -%}
+<code>{{ node.text }}</code>
+{%- endmacro InlineCode -%}
+
+{%- macro Image(node) -%}
+<img src="{{ node.src | safe }}" alt="{{ node.alt }}"
+  sizes="(min-width: 1190px) 1190px, (min-width: 780px) 780px, (min-width: 340px) 340px"
+  srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1190,780,340]) | safe }}" />
+{%- endmacro Image -%}

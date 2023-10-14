@@ -8,6 +8,8 @@
 {{ yamd::Image(node=node) }}
 {%- elif node.type == 'Code' -%}
 {{ yamd::Code(node=node) }}
+{%- elif node.type == 'List' -%}
+{{ yamd::List(node=node) }}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
@@ -68,3 +70,41 @@
 {%- macro Code(node) -%}
 <pre><code>{{ code(code=node.code, language=node.lang) | safe }}</code></pre>
 {%- endmacro Code -%}
+
+{%- macro List(node) -%}
+{%- if node.list_type == 'Unordered' -%}
+<ul>
+  {%- else -%}
+  <ol>
+    {%- endif -%}
+    {%- for list_item in node.nodes -%}
+    {{ yamd::ListItem(node=list_item) }}
+    {%- endfor -%}
+    {%- if node.list_type == 'Unordered' -%}
+</ul>
+{%- else -%}
+</ol>
+{%- endif -%}
+
+{%- endmacro List -%}
+
+{%- macro ListItem(node) -%}
+<li>
+  {%- for inner_node in node.text.nodes -%}
+  {%- if inner_node.type == 'Text' -%}
+  {{ inner_node.text }}
+  {%- elif inner_node.type == 'B' -%}
+  {{ yamd::B(nodes=inner_node.nodes) }}
+  {%- elif inner_node.type == 'I' -%}
+  {{ yamd::I(node=inner_node) }}
+  {%- elif inner_node.type == 'S' -%}
+  {{ yamd::S(node=inner_node) }}
+  {%- elif inner_node.type == 'InlineCode' -%}
+  {{ yamd::InlineCode(node=inner_node) }}
+  {%- endif -%}
+  {%- endfor -%}
+  {%- if node.nested_list -%}
+  {{ yamd::List(node=nested_list) }}
+  {%- endif -%}
+</li>
+{%- endmacro ListItem -%}

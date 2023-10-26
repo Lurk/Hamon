@@ -10,6 +10,8 @@
 {{ yamd::Code(node=node) }}
 {%- elif node.type == 'List' -%}
 {{ yamd::List(node=node) }}
+{%- elif node.type == 'ImageGallery' -%}
+{{ yamd::ImageGallery(node=node) }}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
@@ -108,3 +110,17 @@
   {%- endif -%}
 </li>
 {%- endmacro ListItem -%}
+
+
+{%- macro ImageGallery(node) -%}
+<div class="image-gallery">
+  {%- for image in node.nodes -%}
+  <div class="image-gallery__item">
+    <img src="{{ get_image_url(src = image.src, width = 130, height = 130) | safe }}" alt="{{ image.alt }}" />
+    <div class="image-gallery__image">
+      <img src="{{ get_image_url(src = image.src, width = 500, height = 500) | safe }}" alt="{{ image.alt }}" />
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+{%- endmacro ImageGallery -%}

@@ -191,6 +191,9 @@ a:hover {
     color: var(--lighter);
     display: inline-block;
   }
+  h2 {
+    padding: 0 1rem;
+  }
 }
 
 #footer {

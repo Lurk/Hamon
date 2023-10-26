@@ -126,11 +126,10 @@ a:hover {
 }
 
 .image-gallery__image {
-  position: absolute;
   display: none;
 }
 
-.image-gallery__item:hover > .image-gallery__image {
+.image-gallery__image:target {
   display: block;
 }
 

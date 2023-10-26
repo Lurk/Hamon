@@ -113,13 +113,20 @@
 
 
 {%- macro ImageGallery(node) -%}
+{%- for node in node.nodes -%}
+<div class="image-gallery__image" id="{{ node.alt }}">
+  <img src="{{ node.src | safe }}" alt="{{ node.alt }}"
+    sizes="(min-width: 1190px) 1190px, (min-width: 780px) 780px, (min-width: 340px) 340px"
+    srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1190,780,340]) | safe }}" />
+</div>
+{%- endfor -%}
 <div class="image-gallery">
+
   {%- for image in node.nodes -%}
   <div class="image-gallery__item">
-    <img src="{{ get_image_url(src = image.src, width = 130, height = 130) | safe }}" alt="{{ image.alt }}" />
-    <div class="image-gallery__image">
-      <img src="{{ get_image_url(src = image.src, width = 500, height = 500) | safe }}" alt="{{ image.alt }}" />
-    </div>
+    <a href="#{{ image.alt }}">
+      <img src="{{ get_image_url(src = image.src, width = 130, height = 130) | safe }}" alt="{{ image.alt }}" />
+    </a>
   </div>
   {%- endfor -%}
 </div>

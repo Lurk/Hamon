@@ -1,74 +1,89 @@
 <!doctype html>
 <html class="no-js" lang="">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ add_static_file(path="/css.css", file_path="./css.css") | safe }}">
-    <meta name="description" content="{{ description }}">
-    <meta property="og:title" content="{{ title }}">
-    <meta property="og:type" content="{%- block og_type -%}website{%- endblock og_type -%}">
-    <meta property="og:url" content="{%- block og_url -%}{%- endblock og_url -%}">
-    <meta property="og:image" content="{%- block og_image -%}{%- endblock og_image -%}">
-    <link rel="icon" href="/favicon.ico?cb={{ now() }}" sizes="any">
-    <link rel="icon" href="/icon.svg?cb={{ now() }}" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="icon.png?cb={{ now() }}">
-    <link rel="manifest" href="site.webmanifest">
-    <meta name="theme-color" content="#2b2a2a">
+    <link
+      rel="stylesheet"
+      href="{{ add_static_file( path = '/css.css', file_path='./css.css' ) | safe }}"
+    />
+    <meta name="description" content="{{ description }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta
+      property="og:type"
+      content="{%- block og_type -%}website{%- endblock og_type -%}"
+    />
+    <meta
+      property="og:url"
+      content="{%- block og_url -%}{%- endblock og_url -%}"
+    />
+    <meta
+      property="og:image"
+      content="{%- block og_image -%}{%- endblock og_image -%}"
+    />
+    <link rel="icon" href="/favicon.ico?cb={{ now() }}" sizes="any" />
+    <link rel="icon" href="/icon.svg?cb={{ now() }}" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="icon.png?cb={{ now() }}" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#2b2a2a" />
     {%- block head -%}{%- endblock head -%}
-</head>
-<body>
+  </head>
+
+  <body>
     <div id="content">
-        {%- block content -%}{%- endblock content -%}
+      <div class="container">{%- block content -%}{%- endblock content -%}</div>
     </div>
     <div id="footer">
-        <div class="row">
-            <div class="column">
-                <h4>Subscribe by:</h4>
-                <div class="row with-icon">
-                    {%- include "components/icons/json_feed.html" -%} 
-                    <a href="{{ config.domain }}">JSON Feed</a>
-                </div>
-                <div class="row with-icon">
-                    {%- include "components/icons/rss.html" -%}
-                    <a href="{{ config.domain }}">RSS</a>
-                </div>
-            </div>
-            <div class="column">
-                <h4>You can find me at:</h4>
-                <div class="row with-icon">
-                    {%- include "components/icons/github.html" -%}
-                    <a href="https://github.com/Lurk">GitHub</a>
-                </div>    
-                <div class="row with-icon">
-                    {%- include "components/icons/mastodon.html" -%}
-                    <a rel="me" href="https://mas.to/@barhamon">Mastodon</a>
-                </div>
-                <div class="row with-icon">
-                    {%- include "components/icons/facebook.html" -%}
-                    <a rel="me" href="https://www.facebook.com/bargamon/">Facebook</a>
-                </div>
-                <div class="row with-icon">
-                    {%- include "components/icons/instagram.html" -%}
-                    <a rel="me" href="https://www.instagram.com/fedorpupkin/">Instagram</a>
-                </div> 
-            </div>
-            <div class="column">
-                <h4>Source code:</h4>
-                <div class="row with-icon">
-                    {%- include "components/icons/github.html" -%}
-                    <a href="https://mas.to/@barhamon">Bar</a>
-                </div>
-                <div class="row with-icon">
-                    {%- include "components/icons/github.html" -%}
-                    <a href="https://mas.to/@barhamon">Hamon</a>
-                </div>
-                <div class="row with-icon">
-                    {%- include "components/icons/github.html" -%}
-                    <a href="https://github.com/Lurk/yamd">Yamd</a>
-                </div>
-            </div>
+      <div class="row">
+        <div class="column">
+          <h4>Subscribe by:</h4>
+          <div class="row with-icon">
+            {%- include "components/icons/json_feed.html" -%}
+            <a href="{{ config.domain }}">JSON Feed</a>
+          </div>
+          <div class="row with-icon">
+            {%- include "components/icons/rss.html" -%}
+            <a href="{{ config.domain }}">RSS</a>
+          </div>
         </div>
+        <div class="column">
+          <h4>You can find me at:</h4>
+          <div class="row with-icon">
+            {%- include "components/icons/github.html" -%}
+            <a href="https://github.com/Lurk">GitHub</a>
+          </div>
+          <div class="row with-icon">
+            {%- include "components/icons/mastodon.html" -%}
+            <a rel="me" href="https://mas.to/@barhamon">Mastodon</a>
+          </div>
+          <div class="row with-icon">
+            {%- include "components/icons/facebook.html" -%}
+            <a rel="me" href="https://www.facebook.com/bargamon/">Facebook</a>
+          </div>
+          <div class="row with-icon">
+            {%- include "components/icons/instagram.html" -%}
+            <a rel="me" href="https://www.instagram.com/fedorpupkin/"
+              >Instagram</a
+            >
+          </div>
+        </div>
+        <div class="column">
+          <h4>Source code:</h4>
+          <div class="row with-icon">
+            {%- include "components/icons/github.html" -%}
+            <a href="https://mas.to/@barhamon">Bar</a>
+          </div>
+          <div class="row with-icon">
+            {%- include "components/icons/github.html" -%}
+            <a href="https://mas.to/@barhamon">Hamon</a>
+          </div>
+          <div class="row with-icon">
+            {%- include "components/icons/github.html" -%}
+            <a href="https://github.com/Lurk/yamd">Yamd</a>
+          </div>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

@@ -4,13 +4,14 @@
   --medium: #a5a5a5;
   --light: #cccccc;
   --lighter: #f2f2f2;
+  --font-size: 22px;
 }
 
 html,
 body {
   background-color: var(--darker);
   color: var(--light);
-  font-size: 1.2em;
+  font-size: var(--font-size);
   line-height: 1.4;
   padding: 0;
   margin: 0;
@@ -96,53 +97,65 @@ a:hover {
   border: none;
   border-radius: 0.28571429rem;
   width: 20rem;
-  .img {
-    height: 10rem;
-  }
-  .card-body {
-    padding: 1rem;
-  }
-  h3 {
-    margin: 0;
-    font-size: 1.5em;
-  }
-  .timestamp {
-    font-size: 0.8em;
-    margin-top: 0;
-    color: var(--medium);
-  }
+}
+.card .img {
+  height: 10rem;
+}
+.card .card-body {
+  padding: 1rem;
+}
+.card h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+.card .timestamp {
+  font-size: 0.8em;
+  margin-top: 0;
+  color: var(--medium);
 }
 
-.image-gallery {
+.ig .thumb {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2px;
 }
 
-.image-gallery__item {
-  width: 130px;
-  height: 130px;
+.ig .thumb div {
+  width: 99px;
+  height: 99px;
 }
 
-.image-gallery__image {
+.ig .image {
+  margin-bottom: 2px;
+}
+
+.ig .image div {
   display: none;
 }
 
-.image-gallery__image:target {
+.ig .image div:target {
+  display: block;
+}
+
+.ig .image div img {
+  width: 100%;
+}
+
+.ig .image:not(:has(> div:target)) > :first-child {
   display: block;
 }
 
 .with-icon {
   align-items: center;
   gap: 0.5rem;
-  svg {
-    width: 1rem;
-    height: 1rem;
-    path {
-      fill: var(--lighter);
-    }
-  }
+}
+.with-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+.with-icon path {
+  fill: var(--lighter);
 }
 
 .icon {
@@ -151,49 +164,49 @@ a:hover {
 
 .container {
   display: flex;
+  flex-direction: column;
 }
 
 .post {
-  width: 62rem;
   margin: 1rem;
   background-color: var(--dark);
   border-radius: 0.28571429rem;
   box-shadow:
     0 1px 3px 0 var(--dark),
     0 0 0 1px var(--dark);
-  img {
-    width: 100%;
-  }
-  p {
-    padding: 0 1em;
-  }
-  code {
-    display: block;
-    background-color: var(--darker);
-    padding: 1rem;
-    overflow-x: scroll;
-  }
-  .head {
-    height: 31rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  .head > div {
-    background-color: rgba(65, 65, 65, 0.5);
-    text-align: center;
-  }
-  .tag {
-    margin: 1rem 0.5rem;
-    padding: 0.5rem;
-    border-radius: 0.28571429rem;
-    background-color: var(--dark);
-    color: var(--lighter);
-    display: inline-block;
-  }
-  h2 {
-    padding: 0 1rem;
-  }
+}
+.post img {
+  width: 100%;
+}
+.post p {
+  padding: 0 1em;
+}
+.post code {
+  display: block;
+  background-color: var(--darker);
+  padding: 1rem;
+  overflow-x: scroll;
+}
+.post .head {
+  height: 31rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.post .head > div {
+  background-color: rgba(65, 65, 65, 0.5);
+  text-align: center;
+}
+.post .tag {
+  margin: 1rem 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.28571429rem;
+  background-color: var(--dark);
+  color: var(--lighter);
+  display: inline-block;
+}
+.post h2 {
+  padding: 0 1rem;
 }
 
 #footer {
@@ -207,16 +220,19 @@ a:hover {
   margin-top: 2rem;
 }
 
-@media only screen and (min-width: 62rem) {
+@media only screen and (min-width: calc(50 * 22px)) {
   #content,
   #footer {
     display: flex;
     justify-content: center;
   }
+  .container {
+    width: 48rem;
+  }
 }
 
-@media only screen and (max-width: 62rem) {
-  .post {
+@media only screen and (max-width: calc(50 * 22px)) {
+  .container {
     width: calc(100% - 2rem);
   }
   .row {
@@ -224,11 +240,11 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 62rem) and (orientation: portrait) {
-  html,
-  body {
-    font-size: 1em;
+@media only screen and (max-width: calc(50 * 22px)) and (orientation: portrait) {
+  :root {
+    --font-size: 18px;
   }
+
   .container > *:not(div) {
     margin-left: 1rem;
   }
@@ -240,13 +256,15 @@ a:hover {
     padding: 0;
   }
 
-  .post {
+  .container {
     width: 100%;
+  }
+  .post {
     margin: 0;
     border-radius: 0;
-    .img {
-      height: 15rem;
-    }
+  }
+  .post .img {
+    height: 15rem;
   }
 
   .card {

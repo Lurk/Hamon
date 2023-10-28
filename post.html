@@ -9,7 +9,6 @@
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content -%}
-<div class="container">
   <div class="post">
     <div class="img head" style="background-image: url('{{ post.content.metadata.image | safe }}')">
       <div>
@@ -26,5 +25,4 @@
     </div>
     {{ yamd::yamd(nodes=post.content.nodes) }}
   </div>
-</div>
 {% endblock %}

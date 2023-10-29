@@ -40,7 +40,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid var(--medium);
+  border-top: 1px solid var(--darker);
   margin: 1em 0;
   padding: 0;
 }
@@ -211,7 +211,8 @@ a:hover {
   color: var(--lighter);
   display: inline-block;
 }
-.post h2 {
+.post h2,
+.post h3 {
   padding: 0 1rem;
 }
 

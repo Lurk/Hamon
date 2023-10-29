@@ -12,6 +12,8 @@
 {{ yamd::List(node=node) }}
 {%- elif node.type == 'ImageGallery' -%}
 {{ yamd::ImageGallery(node=node) }}
+{%- elif node.type == 'Divider' -%}
+{{ yamd::Divider() }}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
@@ -136,3 +138,7 @@
   </div>
 </div>
 {%- endmacro ImageGallery -%}
+
+{%- macro Divider() -%}
+<hr />
+{%- endmacro Divider -%}

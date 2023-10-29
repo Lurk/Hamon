@@ -1,7 +1,9 @@
 {% import "components/link.html" as link %}
 
 <div class="card">
-  <div class="img" style="background-image: url({{ post.content.metadata.image }})"></div>
+  <div class="img"
+    style="background-image: url({{ get_image_url(src = post.content.metadata.image, width = 338, height = 220) | safe }})">
+  </div>
   <div class="card-body">
     <h3>
       {{ link::local_page( path='/post/' ~ post.pid ~ '.html', template="post.html", text=post.content.metadata.title,

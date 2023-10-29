@@ -4,13 +4,16 @@
 
 {% block og_image -%}
   {% set post = get_post_by_path( path = path ) %}
-  {{ post.content.metadata.image | safe }}
+  {{ get_image_url(src = post.content.metadata.image, width = 1012, height = 682) | safe }}
 {% endblock -%}
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content -%}
   <div class="post">
-    <div class="img head" style="background-image: url('{{ post.content.metadata.image | safe }}')">
+    <div 
+      class="img head" 
+      style="background-image: url('{{ get_image_url(src = post.content.metadata.image, width = 1012, height = 682) | safe }}')"
+    >
       <div>
         <h1>{{ title }}</h1>
       </div>

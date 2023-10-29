@@ -7,16 +7,7 @@
   {% set page = get_posts_by_tag(tag = title, limit = 9, offset = page_num * 9) %}
   <div class="row">
   {% for post in  page.posts %}
-    <div class="card">
-      <div class="img" style="background-image: url({{ post.content.metadata.image }})"></div>
-      <div class="card-body">
-        <h3>
-          {{ link::local_page(path='/post/' ~ post.pid ~ '.html', template="post.html", text=post.content.metadata.title, title=post.content.metadata.title, description=post.content.metadata.preview) }}
-        </h3>
-        <p class="timestamp">{{ post.content.metadata.timestamp }}</p>
-        <p>{{ post.content.metadata.preview }}</p>
-      </div>
-    </div>
+    {% include "components/post_card.html" %}
   {% endfor %}
   </div>
 {% endblock %}

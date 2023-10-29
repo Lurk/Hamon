@@ -9,7 +9,7 @@
   <p>I'm a software engineer and adventurer. I'm currently working as a team lead at <a href="https://check24.de">Check24</a> in Munich, Germany.</p>
   {% for tag in config.index_tags %}
     <h2>{{ tag | capitalize }}:</h2>
-    <div class="row">
+    <div class="grid">
       {% set page = get_posts_by_tag(tag = tag, limit = 3, offset = 0) %}
       {% for post in  page.posts %}
         {% include "components/post_card.html" %}

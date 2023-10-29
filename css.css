@@ -65,7 +65,6 @@ textarea {
 
 a {
   color: var(--light);
-  text-decoration: none;
   transition: color 0.1s ease;
 }
 a:hover {
@@ -78,7 +77,7 @@ a:hover {
   justify-content: center;
 }
 
-.row {
+.grid {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
@@ -243,7 +242,7 @@ a:hover {
 }
 
 @media only screen and (max-width: 700px) {
-  .row {
+  .grid {
     grid-template-columns: repeat(1, 1fr);
   }
 }

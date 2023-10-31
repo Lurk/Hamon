@@ -153,9 +153,9 @@
 
 {%- macro Embed(node) -%}
 {%- if node.kind | lower == 'youtube' -%}
-<iframe class="youtube" src="{{ node.url }}" frameBorder="0"
+<iframe class="youtube" src="{{ node.args }}" frameBorder="0"
   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen=""></iframe>
 {%- else -%}
-<iframe src="{{ node.url }}" frameBorder="0" allowFullScreen=""></iframe>
+<iframe src="{{ node.args }}" frameBorder="0" allowFullScreen=""></iframe>
 {%- endif -%}
 {%- endmacro Embed -%}

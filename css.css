@@ -396,6 +396,10 @@ a:hover {
   color: var(--medium);
 }
 
+.spacer {
+  height: 2rem;
+}
+
 #footer {
   background-color: var(--dark);
   color: var(--lighter);

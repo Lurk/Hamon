@@ -160,6 +160,10 @@ a:hover {
 }
 
 .icon path {
+  fill: var(--light);
+}
+
+*:hover > .icon path {
   fill: var(--lighter);
 }
 
@@ -241,6 +245,10 @@ a:hover {
   cursor: pointer;
   align-items: center;
   gap: 1rem;
+}
+
+.accordion .tab label:hover {
+  color: var(--lighter);
 }
 
 .accordion .tab input:checked ~ label svg {

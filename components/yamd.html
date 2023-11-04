@@ -16,6 +16,8 @@
 {{ yamd::Divider() }}
 {%- elif node.type == 'Embed' -%}
 {{ yamd::Embed(node=node) }}
+{%- elif node.type == 'Accordion' -%}
+{{ yamd::Accordion(node=node) }}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
@@ -159,3 +161,20 @@
 <iframe src="{{ node.args }}" frameBorder="0" allowFullScreen=""></iframe>
 {%- endif -%}
 {%- endmacro Embed -%}
+
+{%- macro Accordion(node) -%}
+<div class="accordion">
+  {%- for tab in node.nodes -%}
+  <div class="tab">
+    <input type="checkbox" id="{{ tab.title }}" />
+    <label for="{{ tab.title }}">
+      {%- include 'components/icons/play.html' -%}
+      {{ tab.title }}
+    </label>
+    <div class="body">
+      {{ yamd::yamd(nodes=tab.nodes) }}
+    </div>
+  </div>
+  {%- endfor -%}
+</div>
+{%- endmacro -%}

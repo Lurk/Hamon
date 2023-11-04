@@ -159,11 +159,8 @@ a:hover {
   width: 1rem;
   height: 1rem;
 }
-.with-icon path {
-  fill: var(--lighter);
-}
 
-.icon {
+.icon path {
   fill: var(--lighter);
 }
 
@@ -218,6 +215,52 @@ a:hover {
 .youtube {
   width: 100%;
   height: 400px;
+}
+
+.accordion {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.accordion .tab {
+  border: 1px solid var(--dark);
+}
+
+.accordion .tab input {
+  display: none;
+}
+
+.accordion .tab input:checked ~ .body {
+  display: block;
+}
+
+.accordion .tab label {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--darker);
+  cursor: pointer;
+  align-items: center;
+  gap: 1rem;
+}
+
+.accordion .tab input:checked ~ label svg {
+  transform: rotate(90deg);
+}
+
+.accordion .tab label svg {
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.accordion .tab .body {
+  display: none;
+  background-color: var(--darker);
+  overflow: hidden;
+  border-top: 1px solid var(--dark);
 }
 
 #footer {

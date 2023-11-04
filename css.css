@@ -165,11 +165,11 @@ a:hover {
   height: 1rem;
 }
 
-.icon path {
+.icon {
   fill: var(--light);
 }
 
-*:hover > .icon path {
+*:hover > .icon {
   fill: var(--lighter);
 }
 
@@ -324,11 +324,11 @@ a:hover {
   border-radius: 0.28571429rem;
 }
 
-.highlight .icon path {
+.highlight .icon {
   fill: var(--dark);
 }
 
-.highlight .hicon:hover .icon path {
+.highlight .hicon:hover .icon {
   fill: var(--darker);
 }
 
@@ -368,6 +368,33 @@ a:hover {
   text-decoration: none;
 }
 
+.back {
+  display: flex;
+  align-items: center;
+  margin: 2rem 2rem 0 2rem;
+  gap: 1rem;
+}
+
+.back .icon {
+  width: 3rem;
+  fill: var(--dark);
+}
+
+.back .icon:has(~ a:hover) {
+  fill: var(--medium);
+}
+
+.back a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: var(--dark);
+  font-weight: bold;
+}
+
+.back a:hover {
+  color: var(--medium);
+}
+
 #footer {
   background-color: var(--dark);
   color: var(--lighter);
@@ -388,6 +415,18 @@ a:hover {
   :root {
     --font-size: 18px;
   }
+
+  .back svg {
+    width: 2rem;
+  }
+
+  .back a {
+    font-size: 2rem;
+  }
+
+  .back .icon:has(~ a:hover) {
+    fill: var(--medium);
+  }
   .container {
     width: calc(100% - 2rem);
   }
@@ -404,6 +443,14 @@ a:hover {
     --font-size: 18px;
   }
 
+  .back .icon {
+    width: 2rem;
+  }
+
+  .back a {
+    font-size: 1rem;
+  }
+
   .container > *:not(div) {
     margin-left: 1rem;
   }
@@ -416,7 +463,7 @@ a:hover {
     width: 100%;
   }
   .post {
-    margin: 0;
+    margin: 0 0 2rem 0;
     border-radius: 0;
   }
   .post .img {

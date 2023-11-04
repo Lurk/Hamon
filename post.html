@@ -2,10 +2,7 @@
 {% import "components/common.html" as common %}
 {% import "components/yamd.html" as yamd %}
 
-{% block og_image -%}
-  {% set post = get_post_by_path( path = path ) %}
-  {{ get_image_url(src = post.content.metadata.image, width = 1012, height = 682) | safe }}
-{% endblock -%}
+{% block og_image -%}{% set post = get_post_by_path( path = path ) %}{{ get_image_url(src = post.content.metadata.image, width = 1012, height = 682) | safe }}{% endblock -%}
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content -%}

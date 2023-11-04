@@ -133,6 +133,7 @@ a:hover {
 .ig .thumb div {
   width: 99px;
   height: 99px;
+  overflow: hidden;
 }
 
 .ig .image {

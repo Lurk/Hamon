@@ -40,7 +40,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 1px solid var(--darker);
+  border-top: 2px solid var(--darker);
   margin: 1em 0;
   padding: 0;
 }
@@ -176,13 +176,12 @@ a:hover {
   margin: 1rem;
   background-color: var(--dark);
   border-radius: 0.28571429rem;
-  box-shadow:
-    0 1px 3px 0 var(--dark),
-    0 0 0 1px var(--dark);
 }
+
 .post img {
   width: 100%;
 }
+
 .post p {
   padding: 0 2rem;
 }
@@ -231,6 +230,19 @@ a:hover {
 .post h2,
 .post h3 {
   padding: 0 1rem;
+}
+
+.post .metadata {
+  padding: 1rem 2rem;
+  border-top: 3px solid var(--darker);
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 1px 1px;
+  grid-template-areas:
+    ". ."
+    ". .";
+  font-size: 0.8em;
 }
 
 .youtube {

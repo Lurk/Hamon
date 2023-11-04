@@ -10,4 +10,39 @@
     {% include "components/post_card.html" %}
   {% endfor %}
   </div>
+  {%- if page.numbers | length > 1 -%}
+  <div class="pagination">
+  {%- for num in page.numbers %}
+    {%- if num.is_current %}
+      <div class="current">
+      {{ num.display }}
+      </div>
+    {%- else %}
+      {%- if num.number == 0 %}
+        <div>
+        {{ common::local_page(
+          path='/tag/' ~ title ~ '.html', 
+          template="tag.html", 
+          text=num.display, 
+          title=title, 
+          description='all posts with tag: ' ~ title, 
+          page_num=num.number
+        ) }}
+        </div>
+      {%- else %}
+        <div>
+        {{ common::local_page(
+          path='/tag/' ~ title ~ '/' ~ num.display ~ '.html', 
+          template="tag.html", 
+          text=num.display, 
+          title=title, 
+          description='all posts with tag: ' ~ title ~ ' page ' ~ num.display, 
+          page_num=num.number
+        ) }}
+        </div>
+      {%- endif %}
+    {%- endif %}
+  {%- endfor %}
+  </div>
+  {%- endif %}
 {% endblock %}

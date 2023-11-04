@@ -340,6 +340,15 @@ a:hover {
   justify-content: center;
 }
 
+.pagination {
+  display: flex;
+  padding: 1rem;
+  margin: 2rem 2rem 0 2rem;
+  gap: 1rem;
+  justify-content: center;
+  background-color: var(--dark);
+}
+
 #footer {
   background-color: var(--dark);
   color: var(--lighter);

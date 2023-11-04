@@ -1,6 +1,6 @@
-{%- macro local_page(path, template, text, title, description) -%}
+{%- macro local_page(path, template, text, title, description, page_num=0) -%}
 {{ self::external_page(url = path, text = text) }}
-{{ add_page(path = path,template = template, title = title, description = description) }}
+{{ add_page(path = path,template = template, title = title, description = description, page_num = page_num) }}
 {%- endmacro local_page -%}
 
 {%- macro external_page(url, text) -%}

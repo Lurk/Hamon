@@ -26,13 +26,7 @@
 <p>
   {%- for node in nodes -%}
   {%- if node.type == 'A' -%}
-  {% set post = get_post_by_path( path = node.url ) %}
-  {%- if post -%}
-  {{ link::local_page( path='/post/' ~ post.pid ~ '.html', template="post.html", text=node.text,
-  title=post.content.metadata.title, description=post.content.metadata.preview ) }}
-  {%- else -%}
-  <a href="{{ node.url }}">{{ node.text }}</a>
-  {%- endif -%}
+  {{ yamd::A(node=node) }}
   {%- elif node.type == 'Text' -%}
   {{ node.text }}
   {%- elif node.type == 'B' -%}
@@ -48,6 +42,15 @@
 </p>
 {%- endmacro P -%}
 
+{%- macro A(node) -%}
+{% set post = get_post_by_path( path = node.url ) %}
+{%- if post -%}
+{{ link::local_page( path='/post/' ~ post.pid ~ '.html', template="post.html", text=node.text,
+title=post.content.metadata.title, description=post.content.metadata.preview ) }}
+{%- else -%}
+<a href="{{ node.url }}">{{ node.text }}</a>
+{%- endif -%}
+{%- endmacro A -%}
 
 {%- macro B(nodes) -%}
 {%- for node in nodes -%}
@@ -115,6 +118,8 @@
   {{ yamd::S(node=inner_node) }}
   {%- elif inner_node.type == 'InlineCode' -%}
   {{ yamd::InlineCode(node=inner_node) }}
+  {%- elif inner_node.type == 'A' -%}
+  {{ yamd::A(node=inner_node) }}
   {%- endif -%}
   {%- endfor -%}
   {%- if node.nested_list -%}

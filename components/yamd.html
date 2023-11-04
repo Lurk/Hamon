@@ -49,7 +49,7 @@
 {%- macro A(node) -%}
 {% set post = get_post_by_path( path = node.url ) %}
 {%- if post -%}
-{{ link::local_page( path='/post/' ~ post.pid ~ '.html', template="post.html", text=node.text,
+{{ common::local_page( path='/post/' ~ post.pid ~ '.html', template="post.html", text=node.text,
 title=post.content.metadata.title, description=post.content.metadata.preview ) }}
 {%- else -%}
 <a href="{{ node.url }}">{{ node.text }}</a>
@@ -192,7 +192,7 @@ title=post.content.metadata.title, description=post.content.metadata.preview ) }
 <div class="highlight">
   {%- if node.icon -%}
   <div class="hicon">
-    {{yamd::Icon(name=node.icon)}}
+    {{common::Icon(name=node.icon)}}
   </div>
   {%- endif -%}
   <div class="body">
@@ -208,43 +208,4 @@ title=post.content.metadata.title, description=post.content.metadata.preview ) }
     </div>
   </div>
 </div>
-{%- endmacro -%}
-
-{%- macro Icon(name) -%}
-{%- if name == "play" -%}
-{%- include "components/icons/play.html" -%}
-{%- elif name =="spotify" -%}
-{%- include "components/icons/spotify.html" -%}
-{%- elif name == "youtube" -%}
-{%- include "components/icons/youtube.html" -%}
-{%- elif name == "itunes" -%}
-{%- include "components/icons/itunes.html" -%}
-{%- elif name =="handshake" -%}
-{%- include "components/icons/handshake.html" -%}
-{%- elif name == "microchip" -%}
-{%- include "components/icons/microchip.html" -%}
-{%- elif name == "meh" -%}
-{%- include "components/icons/face-meh.html" -%}
-{%- elif name == "birthday cake" -%}
-{%- include "components/icons/cake-candles.html" -%}
-{%- elif name == "smile" -%}
-{%- include "components/icons/face-smile.html" -%}
-{%- elif name == "warning sign" -%}
-{%- include "components/icons/triangle-exclamation.html" -%}
-{%- elif name == "envelope" -%}
-{%- include "components/icons/envelope.html" -%}
-{%- elif name == "bandcamp" -%}
-{%- include "components/icons/bandcamp.html" -%}
-{%- elif name == "mixcloud" -%}
-{%- include "components/icons/mixcloud.html" -%}
-{%- elif name == "soundcloud" -%}
-{%- include "components/icons/soundcloud.html" -%}
-{%- elif name == "lightbulb" -%}
-{%- include "components/icons/lightbulb.html" -%}
-{%- elif name == "info circle" -%}
-{%- include "components/icons/circle-info.html" -%}
-
-{%- else -%}
-{{ name }}
-{%- endif -%}
 {%- endmacro -%}

@@ -1,0 +1,60 @@
+{%- macro local_page(path, template, text, title, description) -%}
+{{ self::external_page(url = path, text = text) }}
+{{ add_page(path = path,template = template, title = title, description = description) }}
+{%- endmacro local_page -%}
+
+{%- macro external_page(url, text) -%}
+<a href="{{ url }}"> {{ text }} </a>
+{%- endmacro external_page -%}
+
+{%- macro Icon(name) -%}
+{%- if name == "play" -%}
+{%- include "components/icons/play.html" -%}
+{%- elif name =="spotify" -%}
+{%- include "components/icons/spotify.html" -%}
+{%- elif name == "youtube" -%}
+{%- include "components/icons/youtube.html" -%}
+{%- elif name == "itunes" -%}
+{%- include "components/icons/itunes.html" -%}
+{%- elif name =="handshake" -%}
+{%- include "components/icons/handshake.html" -%}
+{%- elif name == "microchip" -%}
+{%- include "components/icons/microchip.html" -%}
+{%- elif name == "meh" -%}
+{%- include "components/icons/face-meh.html" -%}
+{%- elif name == "birthday cake" -%}
+{%- include "components/icons/cake-candles.html" -%}
+{%- elif name == "smile" -%}
+{%- include "components/icons/face-smile.html" -%}
+{%- elif name == "warning sign" -%}
+{%- include "components/icons/triangle-exclamation.html" -%}
+{%- elif name == "envelope" -%}
+{%- include "components/icons/envelope.html" -%}
+{%- elif name == "bandcamp" -%}
+{%- include "components/icons/bandcamp.html" -%}
+{%- elif name == "mixcloud" -%}
+{%- include "components/icons/mixcloud.html" -%}
+{%- elif name == "soundcloud" -%}
+{%- include "components/icons/soundcloud.html" -%}
+{%- elif name == "lightbulb" -%}
+{%- include "components/icons/lightbulb.html" -%}
+{%- elif name == "info circle" -%}
+{%- include "components/icons/circle-info.html" -%}
+{%- elif name == "github" -%}
+{%- include "components/icons/github.html" -%}
+{%- elif name == "facebook" -%}
+{%- include "components/icons/facebook.html" -%}
+{%- elif name == "mastodon" -%}
+{%- include "components/icons/mastodon.html" -%}
+{%- elif name == "rss" -%}
+{%- include "components/icons/rss.html" -%}
+{%- elif name == "json_feed" -%}
+{%- include "components/icons/json_feed.html" -%}
+{%- elif name == "calendar" -%}
+{%- include "components/icons/calendar.html" -%}
+{%- elif name == "instagram" -%}
+{%- include "components/icons/instagram.html" -%}
+{%- else -%}
+{{ name }}
+{%- endif -%}
+{%- endmacro -%}

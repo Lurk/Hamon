@@ -1,3 +1,5 @@
+{% import "components/common.html" as common %}
+
 <!doctype html>
 <html class="no-js" lang="">
 
@@ -40,34 +42,34 @@
         <div class="column">
           <h4>You can find me at:</h4>
           <div class="row with-icon">
-            {%- include "components/icons/github.html" -%}
+            {{ common::Icon(name="github") }}
             <a href="https://github.com/Lurk">GitHub</a>
           </div>
           <div class="row with-icon">
-            {%- include "components/icons/mastodon.html" -%}
+            {{ common::Icon(name="mastodon") }}
             <a rel="me" href="https://mas.to/@barhamon">Mastodon</a>
           </div>
           <div class="row with-icon">
-            {%- include "components/icons/facebook.html" -%}
+            {{ common::Icon(name="facebook") }}
             <a rel="me" href="https://www.facebook.com/bargamon/">Facebook</a>
           </div>
           <div class="row with-icon">
-            {%- include "components/icons/instagram.html" -%}
+            {{ common::Icon(name="instagram") }}
             <a rel="me" href="https://www.instagram.com/fedorpupkin/">Instagram</a>
           </div>
         </div>
         <div class="column">
           <h4>Source code:</h4>
           <div class="row with-icon">
-            {%- include "components/icons/github.html" -%}
+            {{ common::Icon(name="github") }}
             <a href="https://mas.to/@barhamon">Bar</a>
           </div>
           <div class="row with-icon">
-            {%- include "components/icons/github.html" -%}
+            {{ common::Icon(name="github") }}
             <a href="https://mas.to/@barhamon">Hamon</a>
           </div>
           <div class="row with-icon">
-            {%- include "components/icons/github.html" -%}
+            {{ common::Icon(name="github") }}
             <a href="https://github.com/Lurk/yamd">Yamd</a>
           </div>
         </div>

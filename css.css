@@ -184,8 +184,14 @@ a:hover {
   width: 100%;
 }
 .post p {
-  padding: 0 1em;
+  padding: 0 2rem;
 }
+
+.post ol,
+.post ul {
+  padding: 0 3rem;
+}
+
 .post code {
   display: block;
   background-color: var(--darker);
@@ -268,6 +274,46 @@ a:hover {
   background-color: var(--darker);
   overflow: hidden;
   border-top: 1px solid var(--dark);
+}
+
+.highlight {
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: var(--medium);
+  border-radius: 0.28571429rem;
+}
+
+.highlight .hicon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.28571429rem;
+}
+
+.highlight .icon path {
+  fill: var(--dark);
+}
+
+.highlight .hicon:hover .icon path {
+  fill: var(--darker);
+}
+
+.highlight * {
+  color: var(--dark);
+}
+
+.highlight a:hover {
+  color: var(--darker);
+}
+
+.highlight .body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #footer {

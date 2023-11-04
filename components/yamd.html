@@ -18,6 +18,8 @@
 {{ yamd::Embed(node=node) }}
 {%- elif node.type == 'Accordion' -%}
 {{ yamd::Accordion(node=node) }}
+{%- elif node.type == 'Highlight' -%}
+{{ yamd::Highlight(node=node) }}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
@@ -37,6 +39,8 @@
   {{ yamd::S(node=node) }}
   {%- elif node.type == 'InlineCode' -%}
   {{ yamd::InlineCode(node=node) }}
+  {%- elif node.type == 'Highlight' -%}
+  {{ yamd::Highlight(node=node) }}
   {%- endif -%}
   {%- endfor -%}
 </p>
@@ -182,4 +186,65 @@ title=post.content.metadata.title, description=post.content.metadata.preview ) }
   </div>
   {%- endfor -%}
 </div>
+{%- endmacro -%}
+
+{%- macro Highlight(node) -%}
+<div class="highlight">
+  {%- if node.icon -%}
+  <div class="hicon">
+    {{yamd::Icon(name=node.icon)}}
+  </div>
+  {%- endif -%}
+  <div class="body">
+    {%- if node.title -%}
+    <h3 class="title">
+      {{ node.title }}
+    </h3>
+    {%- endif -%}
+    <div class="content">
+      {%- for inner_node in node.nodes -%}
+      {{yamd::P(nodes=inner_node.nodes)}}
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+{%- endmacro -%}
+
+{%- macro Icon(name) -%}
+{%- if name == "play" -%}
+{%- include "components/icons/play.html" -%}
+{%- elif name =="spotify" -%}
+{%- include "components/icons/spotify.html" -%}
+{%- elif name == "youtube" -%}
+{%- include "components/icons/youtube.html" -%}
+{%- elif name == "itunes" -%}
+{%- include "components/icons/itunes.html" -%}
+{%- elif name =="handshake" -%}
+{%- include "components/icons/handshake.html" -%}
+{%- elif name == "microchip" -%}
+{%- include "components/icons/microchip.html" -%}
+{%- elif name == "meh" -%}
+{%- include "components/icons/face-meh.html" -%}
+{%- elif name == "birthday cake" -%}
+{%- include "components/icons/cake-candles.html" -%}
+{%- elif name == "smile" -%}
+{%- include "components/icons/face-smile.html" -%}
+{%- elif name == "warning sign" -%}
+{%- include "components/icons/triangle-exclamation.html" -%}
+{%- elif name == "envelope" -%}
+{%- include "components/icons/envelope.html" -%}
+{%- elif name == "bandcamp" -%}
+{%- include "components/icons/bandcamp.html" -%}
+{%- elif name == "mixcloud" -%}
+{%- include "components/icons/mixcloud.html" -%}
+{%- elif name == "soundcloud" -%}
+{%- include "components/icons/soundcloud.html" -%}
+{%- elif name == "lightbulb" -%}
+{%- include "components/icons/lightbulb.html" -%}
+{%- elif name == "info circle" -%}
+{%- include "components/icons/circle-info.html" -%}
+
+{%- else -%}
+{{ name }}
+{%- endif -%}
 {%- endmacro -%}

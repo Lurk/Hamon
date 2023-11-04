@@ -192,22 +192,34 @@ a:hover {
   padding: 0 3rem;
 }
 
-.post code {
+.post pre code {
   display: block;
   background-color: var(--darker);
   padding: 1rem;
   overflow-x: scroll;
 }
+
+.post code {
+  color: var(--medium);
+}
+
+.post iframe {
+  width: 100%;
+  height: 20rem;
+}
+
 .post .head {
   height: 31rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+
 .post .head > div {
   background-color: rgba(65, 65, 65, 0.5);
   text-align: center;
 }
+
 .post .tag {
   margin: 1rem 0.5rem;
   padding: 0.5rem;
@@ -319,10 +331,9 @@ a:hover {
 #footer {
   background-color: var(--dark);
   color: var(--lighter);
-  padding: 2rem;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 2rem;
 }

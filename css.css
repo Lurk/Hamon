@@ -180,7 +180,7 @@ a:hover {
 }
 
 .post {
-  margin: 1rem;
+  margin: 1rem 1rem 2rem 1rem;
   background-color: var(--dark);
   border-radius: 0.28571429rem;
 }
@@ -350,7 +350,7 @@ a:hover {
 .pagination {
   display: flex;
   padding: 1rem;
-  margin: 2rem 2rem 0 2rem;
+  margin: 2rem;
   justify-content: center;
   background-color: var(--dark);
   border-radius: 0.28571429rem;
@@ -372,7 +372,7 @@ a:hover {
 .back {
   display: flex;
   align-items: center;
-  margin: 1rem 2rem 0 2rem;
+  margin: 0 2rem 2rem 2rem;
   gap: 1rem;
 }
 
@@ -403,7 +403,6 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2rem;
 }
 
 @media only screen and (min-width: 863px) {
@@ -442,10 +441,6 @@ a:hover {
 @media only screen and (max-width: 700px) and (orientation: portrait) {
   :root {
     --font-size: 18px;
-  }
-
-  .back {
-    margin: 0 2rem;
   }
 
   .back .icon {

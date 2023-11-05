@@ -47,7 +47,7 @@
 {%- endmacro P -%}
 
 {%- macro A(node) -%}
-{% set post = get_post_by_path( path = node.url ) %}
+{% set post = get_page_by_path( path = node.url ) %}
 {%- if post -%}
 {{ common::local_page( path='/post/' ~ post.pid ~ '.html', template="post.html", text=node.text,
 title=post.content.metadata.title, description=post.content.metadata.preview ) }}

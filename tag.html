@@ -4,15 +4,15 @@
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content %}
   <h1>All posts with tag: {{ title }}</h1>
-  {% set page = get_posts_by_tag(tag = title, limit = 9, offset = page_num * 9) %}
+  {% set slice = get_pages_by_tag(tag = title, limit = 9, offset = page_num * 9) %}
   <div class="grid">
-  {% for post in  page.posts %}
+  {% for page in  slice.pages %}
     {% include "components/post_card.html" %}
   {% endfor %}
   </div>
-  {%- if page.numbers | length > 1 -%}
+  {%- if slice.numbers | length > 1 -%}
   <div class="pagination">
-  {%- for num in page.numbers %}
+  {%- for num in slice.numbers %}
     {%- if num.is_current %}
       <div class="current">
       {{ num.display }}

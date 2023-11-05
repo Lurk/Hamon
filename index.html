@@ -10,8 +10,8 @@
   {% for tag in config.template_config.index_tags %}
     <h2>{{ tag | capitalize }}:</h2>
     <div class="grid">
-      {% set page = get_posts_by_tag(tag = tag, limit = 3, offset = 0) %}
-      {% for post in  page.posts %}
+      {% set slice = get_pages_by_tag(tag = tag, limit = 3, offset = 0) %}
+      {% for page in  slice.pages %}
         {% include "components/post_card.html" %}
       {% endfor %}
     </div>

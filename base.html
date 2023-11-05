@@ -36,11 +36,11 @@
         <div class="column">
           <h4>Subscribe by:</h4>
           <div class="row with-icon">
-            {%- include "components/icons/json_feed.html" -%}
+            {{ common::Icon(name="json_feed") }}
             <a href="{{ config.domain }}">JSON Feed</a>
           </div>
           <div class="row with-icon">
-            {%- include "components/icons/rss.html" -%}
+            {{ common::Icon(name="rss") }}
             <a href="{{ config.domain }}">RSS</a>
           </div>
         </div>

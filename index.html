@@ -1,12 +1,21 @@
 {% import "components/common.html" as common %}
+{% import "components/yamd.html" as yamd %}
 
 {% extends "base.html" %}
-{% block og_image %}{% endblock %}
+{% block og_image %}{% set page= get_page_by_path( path = config.template_config.index_post  ) %}{{ get_image_url(src = page.content.metadata.image, width = 1012, height = 682) | safe }}{% endblock %}
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content %}
-  <h1>Serhiy Barhamon blog</h1>
-  <p>HI!</p>
-  <p>I'm a software engineer and adventurer. I'm currently working as a team lead at <a href="https://check24.de">Check24</a> in Munich, Germany.</p>
+  <div class="post">
+    <div 
+      class="img head" 
+      style="background-image: url('{{ get_image_url(src = page.content.metadata.image, width = 1012, height = 682) | safe }}')"
+    >
+      <div>
+        <h1>{{ page.content.metadata.title }}</h1>
+      </div>
+    </div>
+    {{ yamd::yamd(nodes=page.content.nodes) }}
+  </div>
   {% for tag in config.template_config.index_tags %}
     <h2>{{ tag | capitalize }}:</h2>
     <div class="grid">

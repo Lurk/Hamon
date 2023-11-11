@@ -180,7 +180,7 @@ a:hover {
 }
 
 .post {
-  margin: 1rem 1rem 2rem 1rem;
+  margin: 1rem 0 2rem 0;
   background-color: var(--dark);
   border-radius: 0.28571429rem;
 }

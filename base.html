@@ -9,6 +9,7 @@
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ add_static_file( path = '/css.css', file_path='./css.css' ) | safe }}" />
   <link rel="alternate" type="application/feed+json" title="JSON Feed" href="{{ add_feed(path="/feed.json", type="json") }}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ add_feed(path="/feed.xml", type="atom") }}">
   <meta name="description" content="{{ description }}" />
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:type" content="{%- block og_type -%}website{%- endblock og_type -%}" />
@@ -42,7 +43,7 @@
           </div>
           <div class="row with-icon">
             {{ common::Icon(name="rss") }}
-            <a href="{{ config.domain }}">RSS</a>
+            <a href="{{ add_feed(path="/feed.xml", type="atom") }}">RSS</a>
           </div>
         </div>
         <div class="column">

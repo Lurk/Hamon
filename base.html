@@ -8,6 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ title }}</title>
   <link rel="stylesheet" href="{{ add_static_file( path = '/css.css', file_path='./css.css' ) | safe }}" />
+  <link rel="alternate" type="application/feed+json" title="JSON Feed" href="{{ add_feed(path="/feed.json", type="json") }}">
   <meta name="description" content="{{ description }}" />
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:type" content="{%- block og_type -%}website{%- endblock og_type -%}" />
@@ -37,7 +38,7 @@
           <h4>Subscribe by:</h4>
           <div class="row with-icon">
             {{ common::Icon(name="json_feed") }}
-            <a href="{{ config.domain }}">JSON Feed</a>
+            <a href="{{ add_feed(path="/feed.json", type="json") }}">JSON Feed</a>
           </div>
           <div class="row with-icon">
             {{ common::Icon(name="rss") }}

@@ -23,7 +23,7 @@
     type="image/svg+xml" />
   <link rel="apple-touch-icon"
     href="{{ add_static_file(path = '/icon.png', file_path=config.template_config.apple_touch_icon, is_content=true) | safe }}" />
-  <link rel="manifest" href="site.webmanifest" />
+  <link rel="manifest" href="{{ add_static_file(path = '/site.webmanifest', file_path=config.template_config.webmanifest, is_content=true) | safe }}" />
   <meta name="theme-color" content="#2b2a2a" />
   {%- block head -%}{%- endblock head -%}
 </head>
@@ -36,7 +36,7 @@
     <div class="container">
       <div class="grid">
         <div class="column">
-          <h4>Subscribe by:</h4>
+          <p>Subscribe by:</p>
           <div class="row with-icon">
             {{ common::Icon(name="json_feed") }}
             <a href="{{ add_feed(path="/feed.json", type="json") }}">JSON Feed</a>
@@ -47,7 +47,7 @@
           </div>
         </div>
         <div class="column">
-          <h4>You can find me at:</h4>
+          <p>You can find me at:</p>
           <div class="row with-icon">
             {{ common::Icon(name="github") }}
             <a href="https://github.com/Lurk">GitHub</a>
@@ -66,7 +66,7 @@
           </div>
         </div>
         <div class="column">
-          <h4>Source code:</h4>
+          <p>Source code:</p>
           <div class="row with-icon">
             {{ common::Icon(name="github") }}
             <a href="https://github.com/Lurk/bar">bar</a>

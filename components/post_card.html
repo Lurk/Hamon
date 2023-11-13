@@ -7,9 +7,8 @@
   ></div>
   <div class="card-body">
     <h3>
-      {{ common::local_page( path= '/' ~ page.pid ~ '.html',
-      template="post.html", text=page.content.metadata.title,
-      title=page.content.metadata.title,
+      {{ common::local_page( path= page.pid ~ '.html', template="post.html",
+      text=page.content.metadata.title, title=page.content.metadata.title,
       description=page.content.metadata.preview ) }}
     </h3>
     <p>{{ page.content.metadata.preview }}</p>

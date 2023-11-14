@@ -17,7 +17,7 @@
     {{ yamd::yamd(nodes=page.content.nodes) }}
   </div>
   {% for tag in config.template_config.index_tags %}
-    <h2>{{ tag | capitalize }}:</h2>
+    <h2>{{ tag | capitalize }}: <a class="second" href="/tag/{{ tag }}.html">see all</a></h2>
     <div class="grid">
       {% set slice = get_pages_by_tag(tag = tag, limit = 3, offset = 0) %}
       {% for page in  slice.pages %}

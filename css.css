@@ -71,6 +71,16 @@ a:hover {
   color: var(--lighter);
 }
 
+a.second {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+a.second:hover {
+  color: var(--medium);
+  text-decoration: underline;
+}
+
 #content,
 #footer {
   display: flex;

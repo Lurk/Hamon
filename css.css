@@ -420,13 +420,13 @@ a.second:hover {
   align-items: center;
 }
 
-@media only screen and (min-width: 863px) {
+@media only screen and (min-width: 1000px) {
   .container {
-    width: 48rem;
+    width: 1000px;
   }
 }
 
-@media only screen and (max-width: 862px) {
+@media only screen and (max-width: 999px) {
   :root {
     --font-size: 18px;
   }

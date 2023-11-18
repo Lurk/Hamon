@@ -84,8 +84,8 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
 
 {%- macro Image(node) -%}
 <img src="{{ node.src | safe }}" alt="{{ node.alt }}"
-  sizes="(min-width: 1190px) 1190px, (min-width: 780px) 780px, (min-width: 340px) 340px"
-  srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1190,780,340]) | safe }}" />
+  sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
+  srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1000,780,340]) | safe }}" />
 {%- endmacro Image -%}
 
 {%- macro Code(node) -%}
@@ -139,8 +139,8 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
     {%- for node in node.nodes -%}
     <div id="{{ node.alt }}">
       <img src="{{ node.src | safe }}" alt="{{ node.alt }}"
-        sizes="(min-width: 1190px) 1190px, (min-width: 780px) 780px, (min-width: 340px) 340px"
-        srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1190,780,340]) | safe }}"
+        sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
+        srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1000,780,340]) | safe }}"
         loading="lazy" />
     </div>
     {%- endfor -%}

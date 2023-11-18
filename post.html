@@ -7,14 +7,14 @@
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content -%}
   <div class="post">
-    <div 
-      class="img head" 
-      style="background-image: url('{{ get_image_url(src = page.content.metadata.image, width = 1012, height = 682) | safe }}')"
-    >
-      <div>
-        <h1>{{ title }}</h1>
-      </div>
-    </div>
+    <img
+      class="title-image"
+      src="{{ get_image_url(src = page.content.metadata.image, width = 1000, height = 682) | safe }}"
+      alt="{{ page.content.metadata.title }}"
+      sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
+      srcset="{{ prepare_srcset_for_cloudinary_image(src=page.content.metadata.image, breakpoints=[1000,780,340]) | safe }}" 
+    />
+    <h1 class="title">{{ title }}</h1>
     {{ yamd::yamd(nodes=page.content.nodes) }}
     <div class="metadata">
       <div>

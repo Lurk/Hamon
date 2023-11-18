@@ -225,19 +225,6 @@ a.second:hover {
   height: 20rem;
 }
 
-.post .head {
-  height: 31rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.post .head > div {
-  background-color: rgba(65, 65, 65, 0.5);
-  text-align: center;
-  padding: 0 1rem;
-}
-
 .post .tag {
   margin: 1rem 0.5rem;
   padding: 0.5rem;
@@ -246,9 +233,34 @@ a.second:hover {
   color: var(--lighter);
   display: inline-block;
 }
+
+.post .head {
+  background-color: rgba(65, 65, 65, 0.5);
+  text-align: center;
+  padding: 0 1rem;
+  box-sizing: unset;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-bottom: -5.5rem;
+}
+
+.post .title-image {
+  width: 100%;
+  max-height: 682px;
+  border-radius: 0.28571429rem 0.28571429rem 0 0;
+  object-fit: cover;
+}
+
+.post h1,
 .post h2,
 .post h3 {
   padding: 0 1rem;
+}
+
+.post h1.title {
+  color: var(--lighter);
+  padding: 1.5rem 2rem;
 }
 
 .post .metadata {
@@ -484,6 +496,9 @@ a.second:hover {
   }
   .post .img {
     height: 15rem;
+  }
+  .post .head {
+    margin-bottom: -8.5rem;
   }
 
   .img {

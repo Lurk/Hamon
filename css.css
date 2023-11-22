@@ -281,25 +281,19 @@ a.second:hover {
   height: 400px;
 }
 
-.accordion {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-
-.accordion .tab {
+.collapsible {
   border: 1px solid var(--dark);
 }
 
-.accordion .tab input {
+.collapsible input {
   display: none;
 }
 
-.accordion .tab input:checked ~ .body {
+.collapsible input:checked ~ .body {
   display: block;
 }
 
-.accordion .tab label {
+.collapsible label {
   display: flex;
   padding: 1rem;
   background-color: var(--darker);
@@ -308,15 +302,15 @@ a.second:hover {
   gap: 1rem;
 }
 
-.accordion .tab label:hover {
+.collapsible label:hover {
   color: var(--lighter);
 }
 
-.accordion .tab input:checked ~ label svg {
+.collapsible input:checked ~ label svg {
   transform: rotate(90deg);
 }
 
-.accordion .tab label svg {
+.collapsible label svg {
   width: 1rem;
   height: 1rem;
   display: inline-block;
@@ -324,7 +318,7 @@ a.second:hover {
   transition: transform 0.2s ease;
 }
 
-.accordion .tab .body {
+.collapsible .body {
   display: none;
   background-color: var(--darker);
   overflow: hidden;

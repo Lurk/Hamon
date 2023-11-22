@@ -16,8 +16,8 @@
 {{ yamd::Divider() }}
 {%- elif node.type == 'Embed' -%}
 {{ yamd::Embed(node=node) }}
-{%- elif node.type == 'Accordion' -%}
-{{ yamd::Accordion(node=node) }}
+{%- elif node.type == 'Collapsible' -%}
+{{ yamd::Collapsible(node=node) }}
 {%- elif node.type == 'Highlight' -%}
 {{ yamd::Highlight(node=node) }}
 {%- endif -%}
@@ -171,21 +171,17 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
 {%- endif -%}
 {%- endmacro Embed -%}
 
-{%- macro Accordion(node) -%}
-<div class="accordion">
-  {%- for tab in node.nodes -%}
-  <div class="tab">
-    <input type="checkbox" id="{{ tab.title }}" />
-    <label for="{{ tab.title }}">
+{%- macro Collapsible(node) -%}
+  <div class="collapsible">
+    <input type="checkbox" id="{{ node.title }}" />
+    <label for="{{ node.title }}">
       {%- include 'components/icons/play.html' -%}
-      {{ tab.title }}
+      {{ node.title }}
     </label>
     <div class="body">
-      {{ yamd::yamd(nodes=tab.nodes) }}
+      {{ yamd::yamd(nodes=node.nodes) }}
     </div>
   </div>
-  {%- endfor -%}
-</div>
 {%- endmacro -%}
 
 {%- macro Highlight(node) -%}

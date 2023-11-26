@@ -148,10 +148,41 @@ a.second:hover {
 
 .ig .image {
   margin-bottom: 2px;
+  position: relative;
+  min-height: 5rem;
 }
 
 .ig .image div {
   display: none;
+}
+
+.ig .image a {
+  display: flex;
+  position: absolute;
+  text-decoration: none;
+  opacity: 1;
+  transition: opacity 0.1s ease;
+  mix-blend-mode: color-burn;
+  height: 100%;
+  align-items: center;
+}
+
+.ig .image a:hover {
+  opacity: 0.6;
+}
+
+.ig .image .icon {
+  width: 3rem;
+  height: 3rem;
+  fill: var(--dark);
+}
+
+.ig .image .left {
+  left: 0;
+}
+
+.ig .image .right {
+  right: 0;
 }
 
 .ig .image div:target {

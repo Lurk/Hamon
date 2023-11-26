@@ -138,6 +138,18 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
   <div class="image">
     {%- for node in node.nodes -%}
     <div id="{{ node.alt }}">
+      {% if loop.index0 > 0 %}
+      {% set previous = node.nodes | nth(n=loop.index0 - 1) %}
+        <a class="left" href="#{{ previous.alt }}">
+          {{ common::Icon(name='chevron-left') }}
+        </a>
+      {% endif %}
+      {% if not loop.last %}
+      {% set next = node.nodes | nth(n=loop.index) %}
+        <a class="right" href="#{{ next.alt }}">
+          {{ common::Icon(name='chevron-right') }}
+        </a>
+      {% endif %}
       <img src="{{ node.src | safe }}" alt="{{ node.alt }}"
         sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
         srcset="{{ prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1000,780,340]) | safe }}"

@@ -159,12 +159,10 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
   </div>
   <div class="thumb">
     {%- for image in node.nodes -%}
-    <div>
-      <a href="#{{ image.alt }}">
-        <img src="{{ get_image_url(src = image.src, width = 99, height = 99) | safe }}" alt="{{ image.alt }}"
-          loading="lazy" />
-      </a>
-    </div>
+    <a href="#{{ image.alt }}">
+      <img src="{{ get_image_url(src = image.src, width = 98, height = 98) | safe }}" alt="{{ image.alt }}"
+        loading="lazy" />
+    </a>
     {%- endfor -%}
   </div>
 </div>

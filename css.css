@@ -40,7 +40,7 @@ hr {
   display: block;
   height: 1px;
   border: 0;
-  border-top: 2px solid var(--darker);
+  border-top: 2px solid var(--dark);
   margin: 1em 0;
   padding: 0;
 }
@@ -108,7 +108,7 @@ a.second:hover {
 }
 
 .card {
-  background-color: var(--dark);
+  background-color: var(--darker);
   border: none;
   border-radius: 0.28571429rem;
 }
@@ -140,10 +140,9 @@ a.second:hover {
   gap: 2px;
 }
 
-.ig .thumb div {
-  width: 99px;
-  height: 99px;
-  overflow: hidden;
+.ig .thumb img {
+  width: 98px;
+  height: 98px;
 }
 
 .ig .image {
@@ -191,6 +190,7 @@ a.second:hover {
 
 .ig .image div img {
   width: 100%;
+  aspect-ratio: 16/9;
 }
 
 .ig .image:not(:has(> div:target)) > :first-child {
@@ -223,7 +223,7 @@ a.second:hover {
 
 .post {
   margin: 1rem 0 2rem 0;
-  background-color: var(--dark);
+  background-color: var(--darker);
   border-radius: 0.28571429rem;
 }
 
@@ -260,7 +260,7 @@ a.second:hover {
   margin: 1rem 0.5rem;
   padding: 0.5rem;
   border-radius: 0.28571429rem;
-  background-color: var(--dark);
+  background-color: var(--darker);
   color: var(--lighter);
   display: inline-block;
 }
@@ -278,15 +278,15 @@ a.second:hover {
 
 .post .title-image {
   width: 100%;
-  max-height: 682px;
   border-radius: 0.28571429rem 0.28571429rem 0 0;
-  object-fit: cover;
+  aspect-ratio: 16/9;
+  object-fit: contain;
 }
 
 .post h1,
 .post h2,
 .post h3 {
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .post h1.title {
@@ -296,7 +296,7 @@ a.second:hover {
 
 .post .metadata {
   padding: 1rem 2rem;
-  border-top: 3px solid var(--darker);
+  border-top: 2px solid var(--dark);
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr 1fr;
@@ -401,7 +401,7 @@ a.second:hover {
   padding: 1rem;
   margin: 2rem;
   justify-content: center;
-  background-color: var(--dark);
+  background-color: var(--darker);
   border-radius: 0.28571429rem;
 }
 

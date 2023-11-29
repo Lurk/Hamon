@@ -3,7 +3,7 @@
 {%- if node.type == "P" -%}
 {{ yamd::P(nodes=node.nodes) }}
 {%- elif node.type == 'H' -%}
-<h{{ node.level }}>{{ node.text }}</h{{ node.level }}>
+{{ yamd::H(node=node) }}
 {%- elif node.type == 'Image' -%}
 {{ yamd::Image(node=node) }}
 {%- elif node.type == 'Code' -%}
@@ -23,6 +23,18 @@
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
+
+{%- macro H(node) -%}
+<h{{ node.level }}>
+{%- for n in node.nodes-%}
+{%- if n.type == 'Text' -%}
+{{ n.text }}
+{%- elif n.type == 'A' -%}
+{{ yamd::A(node=n) }}
+{%- endif -%}
+{%- endfor -%}
+</h{{ node.level }}>
+{%- endmacro H -%}
 
 {%- macro P(nodes) -%}
 <p>

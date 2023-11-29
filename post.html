@@ -6,7 +6,7 @@
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ config.domain }}{{ path | trim_start_matches(pat="/") }}{% endblock %}
 {% block content -%}
-  <div class="post">
+  <article class="post">
     <img
       class="title-image"
       src="{{ get_image_url(src = page.content.metadata.image, width = 1000, height = 682) | safe }}"
@@ -33,6 +33,6 @@
         {% endfor %}
       </div>
     </div>
-  </div>
+  </article>
 {%- include "components/back.html" -%}
 {% endblock %}

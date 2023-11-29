@@ -297,8 +297,7 @@ a.second:hover {
 }
 
 .post h1.title {
-  color: var(--lighter);
-  padding: 1.5rem 2rem;
+  font-size: 2.5em;
 }
 
 .post .metadata {

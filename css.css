@@ -313,9 +313,15 @@ a.second:hover {
   font-size: 0.8em;
 }
 
-.youtube {
+iframe.youtube {
   width: 100%;
   height: 400px;
+}
+
+iframe.komoot {
+  width: 100%;
+  aspect-ratio: 2/3;
+  height: auto;
 }
 
 .collapsible {

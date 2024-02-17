@@ -1,6 +1,7 @@
 :root {
   --dark: #403f3f;
   --darker: #2b2a2a;
+  --extra-dark: #1d1c1c;
   --medium: #a5a5a5;
   --light: #cccccc;
   --lighter: #f2f2f2;
@@ -15,11 +16,7 @@ body {
   line-height: 1.4;
   padding: 0;
   margin: 0;
-  font-family:
-    Helvetica Neue,
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: "Inter",system-ui,sans-serif;
 }
 
 * {
@@ -242,13 +239,20 @@ a.second:hover {
 
 .post pre code {
   display: block;
-  background-color: var(--darker);
-  padding: 1rem;
+  background-color: var(--extra-dark);
+  padding: 2rem;
   overflow-x: scroll;
+  font-size: 0.9rem;
+  border: 2px solid var(--dark);
+  border-radius: 5px;
 }
 
 .post code {
   color: var(--medium);
+  background-color: var(--dark);
+  padding: 0 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
 .post iframe {
@@ -532,6 +536,13 @@ iframe.komoot {
   }
   .post .head {
     margin-bottom: -8.5rem;
+  }
+
+  .post pre code {
+    border-radius: 0;
+    border: none;
+    border-top: 2px solid var(--dark);
+    border-bottom: 2px solid var(--dark);
   }
 
   .img {

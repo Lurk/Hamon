@@ -7,7 +7,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ add_static_file( path = '/css.css', file_path='./css.css' ) | safe }}" />
+  <link rel="stylesheet" href="{{ get_static_file( path = '/css.css' ) | safe }}" />
   <link rel="alternate" type="application/feed+json" title="JSON Feed" href="{{ add_feed(path="/feed.json", type="json") }}">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ add_feed(path="/feed.xml", type="atom") }}">
   <meta name="description" content="{{ description }}" />
@@ -16,14 +16,14 @@
   <meta property="og:url" content="{%- block og_url -%}{%- endblock og_url -%}" />
   <meta property="og:image" content="{%- block og_image -%}{%- endblock og_image -%}" />
   <link rel="icon"
-    href="{{ add_static_file(path = '/favicon.ico', file_path=config.template_config.favicon, is_content=true) | safe }}"
+    href="{{ get_static_file( path = '/favicon.ico' ) | safe }}"
     sizes="any" />
   <link rel="icon"
-    href="{{ add_static_file(path = '/icon.svg', file_path=config.template_config.svg_icon, is_content=true) | safe }}"
+    href="{{ get_static_file( path = '/icon.svg' ) | safe }}"
     type="image/svg+xml" />
   <link rel="apple-touch-icon"
-    href="{{ add_static_file(path = '/icon.png', file_path=config.template_config.apple_touch_icon, is_content=true) | safe }}" />
-  <link rel="manifest" href="{{ add_static_file(path = '/site.webmanifest', file_path=config.template_config.webmanifest, is_content=true) | safe }}" />
+    href="{{ get_static_file( path = '/icon.png' ) | safe }}" />
+  <link rel="manifest" href="{{ get_static_file( path = '/site.webmanifest' ) | safe }}" />
   <meta name="theme-color" content="#2b2a2a" />
   {%- block head -%}{%- endblock head -%}
 </head>

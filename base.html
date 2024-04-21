@@ -15,14 +15,9 @@
   <meta property="og:type" content="{%- block og_type -%}website{%- endblock og_type -%}" />
   <meta property="og:url" content="{%- block og_url -%}{%- endblock og_url -%}" />
   <meta property="og:image" content="{%- block og_image -%}{%- endblock og_image -%}" />
-  <link rel="icon"
-    href="{{ get_static_file( path = '/favicon.ico' ) | safe }}"
-    sizes="any" />
-  <link rel="icon"
-    href="{{ get_static_file( path = '/icon.svg' ) | safe }}"
-    type="image/svg+xml" />
-  <link rel="apple-touch-icon"
-    href="{{ get_static_file( path = '/icon.png' ) | safe }}" />
+  <link rel="icon" href="{{ get_static_file( path = '/favicon.ico' ) | safe }}" sizes="any" />
+  <link rel="icon" href="{{ get_static_file( path = '/icon.svg' ) | safe }}" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{ get_static_file( path = '/icon.png' ) | safe }}" />
   <link rel="manifest" href="{{ get_static_file( path = '/site.webmanifest' ) | safe }}" />
   <meta name="theme-color" content="#2b2a2a" />
   {%- block head -%}{%- endblock head -%}

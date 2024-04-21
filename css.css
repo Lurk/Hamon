@@ -16,7 +16,7 @@ body {
   line-height: 1.4;
   padding: 0;
   margin: 0;
-  font-family: "Inter",system-ui,sans-serif;
+  font-family: "Inter", system-ui, sans-serif;
 }
 
 * {
@@ -31,6 +31,7 @@ body {
 ::selection {
   background: var(--medium);
   text-shadow: none;
+  color: var(--extra-dark);
 }
 
 hr {

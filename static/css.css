@@ -466,6 +466,14 @@ iframe.komoot {
   height: 2rem;
 }
 
+.not-found{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 #footer {
   background-color: var(--dark);
   color: var(--lighter);

@@ -391,6 +391,18 @@ iframe.komoot {
   border-radius: 0.28571429rem;
 }
 
+.highlight *::-moz-selection {
+  background: var(--extra-dark);
+  color: var(--medium);
+  text-shadow: none;
+}
+
+.highlight *::selection {
+  background: var(--extra-dark);
+  text-shadow: none;
+  color: var(--medium);
+}
+
 .highlight .icon {
   fill: var(--dark);
 }

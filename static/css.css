@@ -261,15 +261,6 @@ a.second:hover {
   height: 20rem;
 }
 
-.post .tag {
-  margin: 1rem 0.5rem;
-  padding: 0.5rem;
-  border-radius: 0.28571429rem;
-  background-color: var(--darker);
-  color: var(--lighter);
-  display: inline-block;
-}
-
 .post .head {
   background-color: rgba(65, 65, 65, 0.5);
   text-align: center;
@@ -375,13 +366,16 @@ iframe.komoot {
 
 .highlight {
   display: grid;
-  grid-template-columns: 1fr 9fr;
   gap: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
   margin: 1rem;
   background-color: var(--medium);
   border-radius: 0.28571429rem;
+}
+
+.highlight:has(.hicon){
+  grid-template-columns: 1fr 9fr;
 }
 
 .highlight .hicon {

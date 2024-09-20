@@ -1,36 +1,36 @@
 {%- macro yamd(nodes) -%}
 {%- for node in nodes -%}
-{%- if node.type == "P" -%}
-{{ yamd::P(nodes=node.nodes) }}
-{%- elif node.type == 'H' -%}
-{{ yamd::H(node=node) }}
+{%- if node.type == "Pargargaph" -%}
+{{ yamd::P(nodes=node.value.body) }}
+{%- elif node.type == 'Heading' -%}
+{{ yamd::H(node=node.value) }}
 {%- elif node.type == 'Image' -%}
-{{ yamd::Image(node=node) }}
+{{ yamd::Image(node=node.value) }}
 {%- elif node.type == 'Code' -%}
-{{ yamd::Code(node=node) }}
+{{ yamd::Code(node=node.value) }}
 {%- elif node.type == 'List' -%}
-{{ yamd::List(node=node) }}
-{%- elif node.type == 'ImageGallery' -%}
-{{ yamd::ImageGallery(node=node) }}
+{{ yamd::List(node=node.value) }}
+{%- elif node.type == 'Images' -%}
+{{ yamd::ImageGallery(node=node.value) }}
 {%- elif node.type == 'Divider' -%}
 {{ yamd::Divider() }}
 {%- elif node.type == 'Embed' -%}
-{{ yamd::Embed(node=node) }}
+{{ yamd::Embed(node=node.value) }}
 {%- elif node.type == 'Collapsible' -%}
-{{ yamd::Collapsible(node=node) }}
+{{ yamd::Collapsible(node=node.value) }}
 {%- elif node.type == 'Highlight' -%}
-{{ yamd::Highlight(node=node) }}
+{{ yamd::Highlight(node=node.value)}}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro yamd -%}
 
 {%- macro H(node) -%}
 <h{{ node.level }}>
-{%- for n in node.nodes-%}
+{%- for n in node.body-%}
 {%- if n.type == 'Text' -%}
-{{ n.text }}
-{%- elif n.type == 'A' -%}
-{{ yamd::A(node=n) }}
+{{ n.value }}
+{%- elif n.type == 'Anchor' -%}
+{{ yamd::A(node=n.value) }}
 {%- endif -%}
 {%- endfor -%}
 </h{{ node.level }}>
@@ -39,20 +39,18 @@
 {%- macro P(nodes) -%}
 <p>
   {%- for node in nodes -%}
-  {%- if node.type == 'A' -%}
-  {{ yamd::A(node=node) }}
+  {%- if node.type == 'Anchor' -%}
+  {{ yamd::A(node=node.value) }}
   {%- elif node.type == 'Text' -%}
-  {{ node.text }}
-  {%- elif node.type == 'B' -%}
-  {{ yamd::B(nodes=node.nodes) }}
-  {%- elif node.type == 'I' -%}
-  {{ yamd::I(node=node) }}
-  {%- elif node.type == 'S' -%}
-  {{ yamd::S(node=node) }}
-  {%- elif node.type == 'InlineCode' -%}
-  {{ yamd::InlineCode(node=node) }}
-  {%- elif node.type == 'Highlight' -%}
-  {{ yamd::Highlight(node=node) }}
+  {{ node.value }}
+  {%- elif node.type == 'Bold' -%}
+  {{ yamd::B(nodes=node.value.body) }}
+  {%- elif node.type == 'Italic' -%}
+  {{ yamd::I(node=node.value) }}
+  {%- elif node.type == 'Strikethrough' -%}
+  {{ yamd::S(node=node.value) }}
+  {%- elif node.type == 'CodeSpan' -%}
+  {{ yamd::InlineCode(node=node.value) }}
   {%- endif -%}
   {%- endfor -%}
 </p>
@@ -62,7 +60,7 @@
 {% set page = get_page_by_path( path = node.url ) %}
 {%- if page -%}
 {{ common::local_page( path=page.pid ~ '.html', template="post.html", text=node.text,
-title=page.content.metadata.title, description=page.content.metadata.preview ) }}
+title=page.metadata.title, description=page.metadata.preview ) }}
 {%- else -%}
 <a href="{{ node.url }}">{{ node.text }}</a>
 {%- endif -%}
@@ -72,26 +70,26 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
 {%- for node in nodes -%}
 <b>
   {%- if node.type == 'Text' -%}
-  {{ node.text }}
-  {%- elif node.type == 'S' -%}
-  {{ yamd::S(node=node) }}
-  {%- elif node.type == 'I' -%}
-  {{ yamd::I(node=node) }}
+  {{ node.value }}
+  {%- elif node.type == 'Strikethrough' -%}
+  {{ yamd::S(node=node.value) }}
+  {%- elif node.type == 'Italic' -%}
+  {{ yamd::I(node=node.value) }}
   {%- endif -%}
 </b>
 {%- endfor -%}
 {%- endmacro B -%}
 
 {%- macro I(node) -%}
-<i>{{ node.text }}</i>
+<i>{{ node }}</i>
 {%- endmacro I -%}
 
 {%- macro S(node) -%}
-<s>{{ node.text }}</s>
+<s>{{ node }}</s>
 {%- endmacro S -%}
 
 {%- macro InlineCode(node) -%}
-<code>{{ node.text }}</code>
+<code>{{ node }}</code>
 {%- endmacro InlineCode -%}
 
 {%- macro Image(node) -%}
@@ -110,7 +108,7 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
   {%- else -%}
   <ol>
     {%- endif -%}
-    {%- for list_item in node.nodes -%}
+    {%- for list_item in node.body -%}
     {{ yamd::ListItem(node=list_item) }}
     {%- endfor -%}
     {%- if node.list_type == 'Unordered' -%}
@@ -123,19 +121,19 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
 
 {%- macro ListItem(node) -%}
 <li>
-  {%- for inner_node in node.text.nodes -%}
+  {%- for inner_node in node.text -%}
   {%- if inner_node.type == 'Text' -%}
-  {{ inner_node.text }}
-  {%- elif inner_node.type == 'B' -%}
-  {{ yamd::B(nodes=inner_node.nodes) }}
-  {%- elif inner_node.type == 'I' -%}
-  {{ yamd::I(node=inner_node) }}
-  {%- elif inner_node.type == 'S' -%}
-  {{ yamd::S(node=inner_node) }}
-  {%- elif inner_node.type == 'InlineCode' -%}
-  {{ yamd::InlineCode(node=inner_node) }}
-  {%- elif inner_node.type == 'A' -%}
-  {{ yamd::A(node=inner_node) }}
+  {{ inner_node.value }}
+  {%- elif inner_node.type == 'Bold' -%}
+  {{ yamd::B(nodes=inner_node.value) }}
+  {%- elif inner_node.type == 'Italic' -%}
+  {{ yamd::I(node=inner_node.value) }}
+  {%- elif inner_node.type == 'Strikethrough' -%}
+  {{ yamd::S(node=inner_node.value) }}
+  {%- elif inner_node.type == 'CodeSpan' -%}
+  {{ yamd::InlineCode(node=inner_node.value) }}
+  {%- elif inner_node.type == 'Anchor' -%}
+  {{ yamd::A(node=inner_node.value) }}
   {%- endif -%}
   {%- endfor -%}
   {%- if node.nested_list -%}
@@ -148,16 +146,16 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
 {%- macro ImageGallery(node) -%}
 <div class="ig">
   <div class="image">
-    {%- for node in node.nodes -%}
+    {%- for node in node.body -%}
     <div id="{{ node.alt }}">
       {% if loop.index0 > 0 %}
-      {% set previous = node.nodes | nth(n=loop.index0 - 1) %}
+      {% set previous = node.body | nth(n=loop.index0 - 1) %}
         <a class="left" href="#{{ previous.alt }}">
           {{ common::Icon(name='chevron-left') }}
         </a>
       {% endif %}
       {% if not loop.last %}
-      {% set next = node.nodes | nth(n=loop.index) %}
+      {% set next = node.body | nth(n=loop.index) %}
         <a class="right" href="#{{ next.alt }}">
           {{ common::Icon(name='chevron-right') }}
         </a>
@@ -170,7 +168,7 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
     {%- endfor -%}
   </div>
   <div class="thumb">
-    {%- for image in node.nodes -%}
+    {%- for image in node.body -%}
     <a href="#{{ image.alt }}">
       <img src="{{ get_image_url(src = image.src, width = 98, height = 98) | safe }}" alt="{{ image.alt }}"
         loading="lazy" />
@@ -201,7 +199,7 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
       {{ node.title }}
     </label>
     <div class="body">
-      {{ yamd::yamd(nodes=node.nodes) }}
+      {{ yamd::yamd(nodes=node.body) }}
     </div>
   </div>
 {%- endmacro -%}
@@ -220,8 +218,8 @@ title=page.content.metadata.title, description=page.content.metadata.preview ) }
     </h3>
     {%- endif -%}
     <div class="content">
-      {%- for inner_node in node.nodes -%}
-      {{yamd::P(nodes=inner_node.nodes)}}
+      {%- for inner_node in node.body -%}
+      {{yamd::P(nodes=inner_node.body)}}
       {%- endfor -%}
     </div>
   </div>

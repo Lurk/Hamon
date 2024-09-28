@@ -3,14 +3,14 @@
 <div class="card">
   <div
     class="img"
-    style="background-image: url({{ get_image_url(src = page.content.metadata.image, width = 338, height = 220) | safe }})"
+    style="background-image: url({{ get_image_url(src = page.metadata.image, width = 338, height = 220) | safe }})"
   ></div>
   <div class="card-body">
     <h3>
       {{ common::local_page( path= page.pid ~ '.html', template="post.html",
-      text=page.content.metadata.title, title=page.content.metadata.title,
-      description=page.content.metadata.preview ) }}
+      text=page.metadata.title, title=page.metadata.title,
+      description=page.metadata.preview ) }}
     </h3>
-    <p>{{ page.content.metadata.preview }}</p>
+    <p>{{ page.metadata.preview }}</p>
   </div>
 </div>

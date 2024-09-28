@@ -137,7 +137,7 @@ title=page.metadata.title, description=page.metadata.preview ) }}
   {%- endif -%}
   {%- endfor -%}
   {%- if node.nested_list -%}
-  {{ yamd::List(node=nested_list) }}
+  {{ yamd::List(node=node.nested_list) }}
   {%- endif -%}
 </li>
 {%- endmacro ListItem -%}

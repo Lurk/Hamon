@@ -1,9 +1,11 @@
 {% extends "base.html" %}
-{% import "components/common.html" as common %} 
+{% import "components/common.html" as common %}
 {% block og_image %}{% endblock %}
 {% block og_url %}{{ config.domain }}{% endblock %}
+{% block nav %}:&nbsp; 
+{{ common::local_page(path='/tag/' ~ title ~ '.html', template="tag.html", text=title, title=title, description='all posts with tag: ' ~ title, page_num=0) }}
+{% endblock %}
 {% block content %}
-  <h1>All posts with tag: {{ title }}</h1>
   {% set slice = get_pages_by_tag(tag = title, limit = 9, offset = page_num * 9) %}
   <div class="grid">
   {% for page in  slice.pages %}
@@ -47,5 +49,4 @@
   {%- else -%}
   <div class="spacer"></div>
   {%- endif %}
-{%- include "components/back.html" -%}
 {% endblock %}

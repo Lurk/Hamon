@@ -5,6 +5,13 @@
 {% block og_image -%}{% set page= get_page_by_path( path = path ) %}{{ get_image_url(src = page.metadata.image, width = 1012, height = 682) | safe }}{% endblock -%}
 {% block og_type %}article{% endblock %}
 {% block og_url %}{{ config.domain }}{{ path | trim_start_matches(pat="/") }}{% endblock %}
+{% block nav %}
+{% if page.metadata.tags[0] %}
+:&nbsp;
+{% set t = page.metadata.tags[0] %}
+{{ common::local_page(path='/tag/' ~ t ~ '.html', template="tag.html", text=t, title=t, description='all posts with tag: ' ~ t, page_num=0) }}
+{% endif %}
+{% endblock %}
 {% block content -%}
   <article class="post">
     <img

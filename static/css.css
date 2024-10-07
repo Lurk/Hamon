@@ -90,21 +90,6 @@ a.second:hover {
   align-items: center;
 }
 
-.nav{
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-  text-transform: uppercase;
-  position: sticky;
-  top: 0;
-  background-color: var(--darker);
-  opacity: 0.97;
-  z-index: 999;
-}
-
-.nav a{
-  text-decoration: none;
-}
-
 .grid {
   display: grid;
   gap: 1rem;
@@ -240,8 +225,23 @@ a.second:hover {
   flex-direction: column;
 }
 
+.nav{
+  margin: 0.5rem 0;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  background-color: var(--darker);
+  opacity: 0.97;
+  z-index: 999;
+  flex-direction: row;
+}
+
+.nav a{
+  text-decoration: none;
+}
+
 .post {
-  margin: 0.5rem 0 2rem 0;
   background-color: var(--darker);
   border-radius: 0.28571429rem;
 }

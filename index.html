@@ -6,9 +6,6 @@
 {% block og_url %}{{ config.domain }}{% endblock %}
 {% block content %}
   <div class="post">
-    <div class="head">
-        <h1>{{ page.metadata.title }}</h1>
-    </div>
     <img
       class="title-image"
       src="{{ get_image_url(src = page.metadata.image, width = 1000, height = 682) | safe }}"

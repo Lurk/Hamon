@@ -85,6 +85,26 @@ a.second:hover {
   justify-content: center;
 }
 
+#content{
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav{
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  background-color: var(--darker);
+  opacity: 0.97;
+  z-index: 999;
+}
+
+.nav a{
+  text-decoration: none;
+}
+
 .grid {
   display: grid;
   gap: 1rem;
@@ -113,8 +133,8 @@ a.second:hover {
 .card .img {
   height: 10rem;
 }
-.card .card-body {
-  padding: 1rem;
+.card .card-body > h3, .card .card-body > p {
+  padding: 0 1rem;
 }
 .card h3 {
   margin: 0;
@@ -184,6 +204,7 @@ a.second:hover {
 
 .ig .image div:target {
   display: block;
+  scroll-margin-top: 2.5rem;
 }
 
 .ig .image div img {
@@ -220,7 +241,7 @@ a.second:hover {
 }
 
 .post {
-  margin: 1rem 0 2rem 0;
+  margin: 0.5rem 0 2rem 0;
   background-color: var(--darker);
   border-radius: 0.28571429rem;
 }
@@ -230,7 +251,7 @@ a.second:hover {
 }
 
 .post p {
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 .post ol,
@@ -241,7 +262,7 @@ a.second:hover {
 .post pre code {
   display: block;
   background-color: var(--extra-dark);
-  padding: 2rem;
+  padding: 1rem;
   overflow-x: scroll;
   font-size: 0.9rem;
   border: 2px solid var(--dark);
@@ -279,13 +300,13 @@ a.second:hover {
   object-fit: contain;
 }
 
-.post h1,
-.post h2,
-.post h3,
-.post h4,
-.post h5,
-.post h6 {
-  padding: 0 2rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0 1rem;
 }
 
 .post h2 + h5 {
@@ -297,7 +318,7 @@ a.second:hover {
 }
 
 .post .metadata {
-  padding: 1rem 2rem;
+  padding: 1rem;
   border-top: 2px solid var(--dark);
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -444,7 +465,7 @@ iframe.komoot {
 .back {
   display: flex;
   align-items: center;
-  margin: 0 2rem 2rem 2rem;
+  margin: 0 2rem 2rem 1rem;
   gap: 1rem;
 }
 
@@ -487,6 +508,12 @@ iframe.komoot {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html{
+    scroll-behavior: smooth;
+  }
 }
 
 @media only screen and (min-width: 1000px) {

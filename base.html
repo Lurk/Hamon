@@ -1,7 +1,7 @@
 {% import "components/common.html" as common %}
 
 <!doctype html>
-<html class="no-js" lang="en">
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
@@ -25,6 +25,9 @@
 
 <body>
   <div id="content">
+    <div class="container nav">
+        <a href="/"> {{config.title}}</a>
+    </div>
     <div class="container">{%- block content -%}{%- endblock content -%}</div>
   </div>
   <div id="footer">

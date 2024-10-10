@@ -1,16 +1,16 @@
-{% import "components/common.html" as common %}
+{%- import "components/common.html" as common -%}
 
 <div class="card">
   <div
     class="img"
-    style="background-image: url({{ get_image_url(src = page.metadata.image, width = 338, height = 220) | safe }})"
+    style="background-image: url({{- get_image_url(src = page.metadata.image, width = 338, height = 220) | safe -}})"
   ></div>
   <div class="card-body">
     <h3>
-      {{ common::local_page( path= page.pid ~ '.html', template="post.html",
+      {{- common::local_page( path= page.pid ~ '.html', template="post.html",
       text=page.metadata.title, title=page.metadata.title,
-      description=page.metadata.preview ) }}
+      description=page.metadata.preview ) -}}
     </h3>
-    <p>{{ page.metadata.preview }}</p>
+    <p>{{- page.metadata.preview -}}</p>
   </div>
 </div>

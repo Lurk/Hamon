@@ -1,30 +1,32 @@
-{% import "components/common.html" as common %}
-{% import "components/yamd.html" as yamd %}
+{%- import "components/common.html" as common -%}
+{%- import "components/yamd.html" as yamd -%}
 
-{% extends "base.html" %}
-{% block og_image %}{% set page= get_page_by_path( path = config.template_config.index_post  ) %}{{ get_image_url(src = page.metadata.image, width = 1012, height = 682) | safe }}{% endblock %}
-{% block og_url %}{{ config.domain }}{% endblock %}
-{% block content %}
+{%- extends "base.html" -%}
+{%- block og_image -%}{%- set page= get_page_by_path( path = config.template_config.index_post  ) -%}
+  {{- get_image_url(src = page.metadata.image, width = 1012, height = 682) | safe -}}
+{%- endblock -%}
+{%- block og_url -%}{{- config.domain -}}{%- endblock -%}
+{%- block content -%}
   <div class="post">
     <img
       class="title-image"
-      src="{{ get_image_url(src = page.metadata.image, width = 1000, height = 682) | safe }}"
-      alt="{{ page.metadata.title }}"
+      src="{{- get_image_url(src = page.metadata.image, width = 1000, height = 682) | safe -}}"
+      alt="{{- page.metadata.title -}}"
       sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
-      srcset="{{ prepare_srcset_for_cloudinary_image(src=page.metadata.image, breakpoints=[1000,780,340]) | safe }}" 
+      srcset="{{- prepare_srcset_for_cloudinary_image(src=page.metadata.image, breakpoints=[1000,780,340]) | safe -}}" 
     />
-    {{ yamd::yamd(nodes=page.content.body) }}
+    {{- yamd::yamd(nodes=page.content.body) -}}
   </div>
-  {% for tag in config.template_config.index_tags %}
-    <h2>{{ tag | capitalize }}: <a class="second" href="/tag/{{ tag }}.html">see all</a></h2>
+  {%- for tag in config.template_config.index_tags -%}
+    <h2>{{- tag | capitalize -}}: <a class="second" href="/tag/{{- tag -}}.html">see all</a></h2>
     <div class="grid">
-      {% set slice = get_pages_by_tag(tag = tag, limit = 3, offset = 0) %}
-      {% for page in  slice.pages %}
-        {% include "components/post_card.html" %}
-      {% endfor %}
+      {%- set slice = get_pages_by_tag(tag = tag, limit = 3, offset = 0) -%}
+      {%- for page in  slice.pages -%}
+        {%- include "components/post_card.html" -%}
+      {%- endfor -%}
     </div>
-  {% endfor %}
+  {%- endfor -%}
   <div class="spacer"></div>
-{% endblock %}
+{%- endblock -%}
 
 

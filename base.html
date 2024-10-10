@@ -2,27 +2,25 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{{ title }}</title>
-  <link rel="stylesheet" href="{{ get_static_file( path = '/css.css' ) | safe }}" />
-  <link rel="alternate" type="application/feed+json" title="JSON Feed" href="{{ add_feed(path="/feed.json", type="json") }}">
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ add_feed(path="/feed.xml", type="atom") }}">
-  <meta name="description" content="{{ description }}" />
-  <meta property="og:title" content="{{ title }}" />
+  <title>{{- title -}}</title>
+  <link rel="stylesheet" href="{{- get_static_file( path = '/css.css' ) | safe -}}" />
+  <link rel="alternate" type="application/feed+json" title="JSON Feed" href="{{- add_feed(path="/feed.json", type="json") -}}">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{{- add_feed(path="/feed.xml", type="atom") -}}">
+  <meta name="description" content="{{- description -}}" />
+  <meta property="og:title" content="{{- title -}}" />
   <meta property="og:type" content="{%- block og_type -%}website{%- endblock og_type -%}" />
   <meta property="og:url" content="{%- block og_url -%}{%- endblock og_url -%}" />
   <meta property="og:image" content="{%- block og_image -%}{%- endblock og_image -%}" />
-  <link rel="icon" href="{{ get_static_file( path = '/favicon.ico' ) | safe }}" sizes="any" />
-  <link rel="icon" href="{{ get_static_file( path = '/icon.svg' ) | safe }}" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="{{ get_static_file( path = '/icon.png' ) | safe }}" />
-  <link rel="manifest" href="{{ get_static_file( path = '/site.webmanifest' ) | safe }}" />
+  <link rel="icon" href="{{- get_static_file( path = '/favicon.ico' ) | safe -}}" sizes="any" />
+  <link rel="icon" href="{{- get_static_file( path = '/icon.svg' ) | safe -}}" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="{{- get_static_file( path = '/icon.png' ) | safe -}}" />
+  <link rel="manifest" href="{{- get_static_file( path = '/site.webmanifest' ) | safe -}}" />
   <meta name="theme-color" content="#2b2a2a" />
   {%- block head -%}{%- endblock head -%}
 </head>
-
 <body>
   <div id="content">
     <div class="container nav">
@@ -37,49 +35,49 @@
         <div class="column">
           <p>Subscribe by:</p>
           <div class="row with-icon">
-            {{ common::Icon(name="json_feed") }}
-            <a href="{{ add_feed(path="/feed.json", type="json") }}">JSON Feed</a>
+            {{- common::Icon(name="json_feed") -}}
+            <a href="{{- add_feed(path="/feed.json", type="json") -}}">JSON Feed</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="rss") }}
-            <a href="{{ add_feed(path="/feed.xml", type="atom") }}">RSS</a>
+            {{- common::Icon(name="rss") -}}
+            <a href="{{- add_feed(path="/feed.xml", type="atom") -}}">RSS</a>
           </div>
         </div>
         <div class="column">
           <p>You can find me at:</p>
           <div class="row with-icon">
-            {{ common::Icon(name="github") }}
+            {{- common::Icon(name="github") -}}
             <a href="https://github.com/Lurk">GitHub</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="mastodon") }}
+            {{- common::Icon(name="mastodon") -}}
             <a rel="me" href="https://mas.to/@barhamon">Mastodon</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="facebook") }}
+            {{- common::Icon(name="facebook") -}}
             <a rel="me" href="https://www.facebook.com/bargamon/">Facebook</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="instagram") }}
+            {{- common::Icon(name="instagram") -}}
             <a rel="me" href="https://www.instagram.com/fedorpupkin/">Instagram</a>
           </div>
         </div>
         <div class="column">
           <p>Source code:</p>
           <div class="row with-icon">
-            {{ common::Icon(name="github") }}
+            {{- common::Icon(name="github") -}}
             <a href="https://github.com/Lurk/bar">BAR</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="github") }}
+            {{- common::Icon(name="github") -}}
             <a href="https://github.com/Lurk/Hamon">Hamon</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="github") }}
+            {{- common::Icon(name="github") -}}
             <a href="https://github.com/Lurk/yamd">Yamd</a>
           </div>
           <div class="row with-icon">
-            {{ common::Icon(name="github") }}
+            {{- common::Icon(name="github") -}}
             <a href="https://github.com/Lurk/serve">serve</a>
           </div>
         </div>

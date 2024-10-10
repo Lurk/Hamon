@@ -117,6 +117,7 @@ a.second:hover {
 }
 .card .img {
   height: 10rem;
+  margin-bottom:1rem;
 }
 .card .card-body > h3, .card .card-body > p {
   padding: 0 1rem;
@@ -460,7 +461,7 @@ iframe.komoot {
 }
 
 .pagination .current {
-  background-color: var(--darker);
+  background-color: var(--dark);
 }
 
 .pagination a {

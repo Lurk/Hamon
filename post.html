@@ -2,7 +2,9 @@
 {%- import "components/common.html" as common -%}
 {%- import "components/yamd.html" as yamd -%}
 
-{%- block og_image -%}{%- set page= get_page_by_path( path = path ) -%}
+
+{%- block og_image -%}
+  {%- set page= get_page_by_path( path = path ) -%}
   {{- get_image_url(src = page.metadata.image, width = 1012, height = 682) | safe -}}
 {%- endblock -%}
 {%- block og_type -%}article{%- endblock -%}
@@ -27,7 +29,7 @@
     {{- yamd::yamd(nodes=page.content.body) -}}
     <div class="metadata">
       <div>
-        posted on: 
+        posted on:
       </div>
       <div>
         {{- page.metadata.date -}}
@@ -43,5 +45,14 @@
       </div>
     </div>
   </article>
-{%- include "components/back.html" -%}
+  {%- set similar = get_similar(pid = page.pid, limit = 3) -%}
+  {%- if similar | length > 0 -%}
+  <h2>More:</h2>
+  <div class="grid">
+    {%- for pid in similar -%}
+      {%- set page = get_page_by_pid( pid = pid ) -%}
+      {%- include "components/post_card.html" -%}
+    {%- endfor -%}
+  </div>
+  {%- endif -%}
 {%- endblock -%}

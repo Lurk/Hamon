@@ -1,10 +1,11 @@
 {%- import "components/common.html" as common -%}
 
 <div class="card">
-  <div
-    class="img"
-    style="background-image: url({{- get_image_url(src = page.metadata.image, width = 338, height = 220) | safe -}})"
-  ></div>
+  <a href="{{-page.pid ~ '.html'-}}">
+    <img
+      src="{{- get_image_url(src = page.metadata.image, width = 338, height = 220) | safe -}}"
+    />
+  </a>
   <div class="card-body">
     <h3>
       {{- common::local_page( path= page.pid ~ '.html', template="post.html",

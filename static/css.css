@@ -261,9 +261,23 @@ a.second:hover {
   text-decoration: none;
 }
 
-.nav a:first-of-type {
+.nav .b{
   font-weight: bold;
 }
+
+.nav a:last-of-type{
+  background: var(--medium);
+  text-shadow: none;
+  color: var(--extra-dark);
+  padding: 0 1ch;
+}
+
+.nav a:last-of-type:hover{
+  background: var(--light);
+  text-shadow: none;
+  color: var(--extra-dark);
+}
+
 
 .post {
   background-color: var(--darker);

@@ -11,9 +11,9 @@
 {%- block og_url -%}{{- config.domain -}}{{- path | trim_start_matches(pat="/") -}}{%- endblock -%}
 {%- block nav -%}
 {%- if page.metadata.tags[0] -%}
-:&nbsp;
+<span class="b">:&nbsp;</span>
 {%- set t = page.metadata.tags[0] -%}
-{{- common::local_page(path='/tag/' ~ t ~ '.html', template="tag.html", text=t, title=t, description='all posts with tag: ' ~ t, page_num=0) -}}
+{{- common::local_page(path='/tag/' ~ t ~ '.html', template="tag.html", text=t, title=t, description='all articles tagged: ' ~ t, page_num=0) -}}
 {%- endif -%}
 {%- endblock -%}
 {%- block content -%}

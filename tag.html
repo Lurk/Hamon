@@ -2,7 +2,8 @@
 {%- import "components/common.html" as common -%}
 {%- block og_image -%}{%- endblock -%}
 {%- block og_url -%}{{- config.domain -}}{%- endblock -%}
-{%- block nav -%}:&nbsp; 
+{%- block nav -%}
+<span class="b">:&nbsp;</span> 
 {{- common::local_page(path='/tag/' ~ title ~ '.html', template="tag.html", text=title, title=title, description='all posts with tag: ' ~ title, page_num=0) -}}
 {%- endblock -%}
 {%- block content -%}

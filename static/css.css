@@ -208,7 +208,6 @@ a.second:hover {
 
 .ig .image div:target {
   scroll-margin-top: 2.5rem;
-  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
 }
@@ -220,7 +219,6 @@ a.second:hover {
 }
 
 .ig .image:not(:has(> div:target)) > :first-child {
-  aspect-ratio: 16/9;
   display: flex;
   align-items: center;
 }

@@ -157,12 +157,16 @@
           {{- common::Icon(name='chevron-right') -}}
         </a>
       {%- endif -%}
-      <img src="{{- node.src | safe -}}" alt="{{- node.alt -}}"
-        sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
-        srcset="{{- prepare_srcset_for_cloudinary_image(src=node.src, breakpoints=[1000,780,340]) | safe -}}"
-        loading="lazy" />
+      <picture class="img">
+        <source media="(max-width: 341px)" srcset="{{- get_image_url(src = node.src, width = 340) | safe -}}">
+        <source media="(max-width: 781px)" srcset="{{- get_image_url(src = node.src, width = 780) | safe -}}">
+        <source media="(max-width: 1001px)" srcset="{{- get_image_url(src = node.src, width = 1000) | safe -}}">
+        <source media="(display-mode: fullscreen)" srcset="{{- get_image_url(src = node.src, width = 2000) | safe -}}">
+        <img src="{{- get_image_url(src = node.src, width = 1000) | safe -}}" alt="{{- node.alt -}}" loading="lazy">
+      </picture>
     </div>
     {%- endfor -%}
+    <a class="fullscreen" onclick="fullscreen(arguments[0])">⛶</a>
   </div>
   <div class="thumb">
     {%- for image in node.body -%}

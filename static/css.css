@@ -181,11 +181,10 @@ a.second:hover {
 
 .ig .image .fullscreen {
   z-index: 11;
-  top: 0.5rem;
-  display: block;
+  bottom: 0.5rem;
+  right: 0.5rem;
   font-size: 2rem;
   font-weight: 800;
-  left: 0.5rem;
   height: auto;
   line-height: 2rem;
   color: var(--dark);

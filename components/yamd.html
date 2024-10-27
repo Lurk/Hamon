@@ -157,7 +157,7 @@
           {{- common::Icon(name='chevron-right') -}}
         </a>
       {%- endif -%}
-      <picture class="img">
+      <picture>
         <source media="(max-width: 341px)" srcset="{{- get_image_url(src = node.src, width = 340) | safe -}}">
         <source media="(max-width: 781px)" srcset="{{- get_image_url(src = node.src, width = 780) | safe -}}">
         <source media="(max-width: 1001px)" srcset="{{- get_image_url(src = node.src, width = 1000) | safe -}}">

@@ -279,6 +279,11 @@ a.second:hover {
   color: var(--extra-dark);
 }
 
+.tags {
+  display: flex;
+  gap: 1ch;
+}
+
 .tags a{
   background: var(--medium);
   text-shadow: none;

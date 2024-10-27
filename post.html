@@ -29,30 +29,33 @@
     {{- yamd::yamd(nodes=page.content.body) -}}
     <div class="metadata">
       <div>
-        posted on:
-      </div>
-      <div>
-        {{- page.metadata.date -}}
-      </div>
-      <div>
         tags:
       </div>
-      <div>
+      <div class="tags">
         {%- for tag in page.metadata.tags -%}
         {{- common::local_page(path='/tag/' ~ tag ~ '.html', template="tag.html", text=tag, title=tag, description='all posts with tag: ' ~ tag) -}}
         <span>&nbsp;</span>
         {%- endfor -%}
       </div>
+      <div>
+        posted on:
+      </div>
+      <div>
+        {{- page.metadata.date -}}
+      </div>
+      {%- set similar = get_similar(pid = page.pid, limit = 3) -%}
+      {%- if similar | length > 0 -%}
+        <div>More:<div>
+          {%- endif -%}
     </div>
   </article>
-  {%- set similar = get_similar(pid = page.pid, limit = 3) -%}
-  {%- if similar | length > 0 -%}
-  <h2>More:</h2>
-  <div class="grid">
-    {%- for pid in similar -%}
-      {%- set page = get_page_by_pid( pid = pid ) -%}
-      {%- include "components/post_card.html" -%}
-    {%- endfor -%}
-  </div>
-  {%- endif -%}
+        {%- if similar | length > 0 -%}
+          <div class="grid">
+            {%- for pid in similar -%}
+            {%- set page = get_page_by_pid( pid = pid ) -%}
+            {%- include "components/post_card.html" -%}
+            {%- endfor -%}
+          </div>
+          {%- endif -%}
+
 {%- endblock -%}

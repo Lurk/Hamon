@@ -280,6 +280,20 @@ a.second:hover {
   color: var(--extra-dark);
 }
 
+.tags a{
+  background: var(--medium);
+  text-shadow: none;
+  color: var(--extra-dark);
+  padding: 0 1ch;
+  text-decoration: none;
+}
+
+.tags a:hover{
+  background: var(--light);
+  text-shadow: none;
+  color: var(--extra-dark);
+}
+
 
 .post {
   background-color: var(--darker);
@@ -359,7 +373,6 @@ h6 {
 .post .metadata {
   padding: 1rem;
   border-top: 2px solid var(--dark);
-  border-bottom: 2px solid var(--dark);
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-template-rows: 1fr 1fr;
@@ -368,6 +381,10 @@ h6 {
     ". ."
     ". .";
   font-size: 0.8em;
+}
+
+.post .metadata div:nth-child(odd) {
+  font-weight: bold;
 }
 
 iframe.youtube {

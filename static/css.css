@@ -282,6 +282,7 @@ a.second:hover {
 .tags {
   display: flex;
   gap: 1ch;
+  flex-wrap: wrap;
 }
 
 .tags a{
@@ -306,6 +307,7 @@ a.second:hover {
 
 .post img {
   width: 100%;
+  border-radius: 0.15rem;
 }
 
 .post p {
@@ -636,12 +638,8 @@ iframe.komoot {
   .container {
     width: 100%;
   }
-  .post {
-    margin: 0 0 2rem 0;
-  }
-  .post .img {
-    height: 15rem;
-  }
+
+
   .post .head {
     margin-bottom: -8.5rem;
   }

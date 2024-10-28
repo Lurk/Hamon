@@ -18,13 +18,12 @@
 {%- endblock -%}
 {%- block content -%}
   <article class="post">
-    <img
-      class="title-image"
-      src="{{- get_image_url(src = page.metadata.image, width = 1000, height = 682) | safe -}}"
-      alt="{{- page.metadata.title -}}"
-      sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
-      srcset="{{- prepare_srcset_for_cloudinary_image(src=page.metadata.image, breakpoints=[1000,780,340]) | safe -}}" 
-    />
+    <picture>
+      <source media="(max-width: 341px)" srcset="{{- get_image_url(src = page.metadata.image, width = 340) | safe -}}">
+      <source media="(max-width: 781px)" srcset="{{- get_image_url(src = page.metadata.image, width = 780) | safe -}}">
+      <source media="(max-width: 1001px)" srcset="{{- get_image_url(src = page.metadata.image, width = 1000) | safe -}}">
+      <img src="{{- get_image_url(src = page.metadata.image, width = 1000) | safe -}}" alt="{{- page.metadata.title -}}" loading="lazy">
+    </picture>
     <h1 class="title">{{- title -}}</h1>
     {{- yamd::yamd(nodes=page.content.body) -}}
     <div class="metadata">

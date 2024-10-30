@@ -150,15 +150,11 @@
     <div id="{{- node.alt -}}">
       {%- if loop.index0 > 0 -%}
       {%- set previous = node.body | nth(n=loop.index0 - 1) -%}
-        <a class="left" href="#{{- previous.alt -}}">
-          {{- common::Icon(name='chevron-left') -}}
-        </a>
+        <a class="left" href="#{{- previous.alt -}}">⟨</a>
       {%- endif -%}
       {%- if not loop.last -%}
       {%- set next = node.body | nth(n=loop.index) -%}
-        <a class="right" href="#{{- next.alt -}}">
-          {{- common::Icon(name='chevron-right') -}}
-        </a>
+        <a class="right" href="#{{- next.alt -}}">⟩</a>
       {%- endif -%}
       <picture>
         <source media="(max-width: 341px)" srcset="{{- get_image_url(src = node.src, width = 340) | safe -}}">

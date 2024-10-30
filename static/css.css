@@ -21,6 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 340px;
 }
 
 * {
@@ -164,15 +165,16 @@ a.second:hover {
 }
 
 .ig .image a {
-  display: flex;
   position: absolute;
   text-decoration: none;
-  opacity: 1;
   transition: opacity 0.1s ease;
-  height: 100%;
-  filter: invert(100%) grayscale(0%);
-  mix-blend-mode: plus-lighter;
-  align-items: center;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bolder;
+  color: var(--lighter);
+  cursor: pointer;
+  opacity: 0.8;
+  padding: 0.5rem;
 }
 
 .ig .image a:hover {
@@ -180,29 +182,18 @@ a.second:hover {
 }
 
 .ig .image .fullscreen {
-  z-index: 11;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  font-size: 2rem;
-  font-weight: 800;
-  height: auto;
-  line-height: 2rem;
-  color: var(--dark);
-  cursor: pointer;
-}
-
-.ig .image .icon {
-  width: 3rem;
-  height: 3rem;
-  fill: var(--dark);
+  bottom: 0;
+  right: 0;
 }
 
 .ig .image .left {
   left: 0;
+  line-height:200px;
 }
 
 .ig .image .right {
   right: 0;
+  line-height:200px;
 }
 
 .ig .image div:target {
@@ -467,6 +458,7 @@ iframe.komoot {
   justify-content: center;
   align-items: center;
   border-radius: 0.15rem;
+  font-size: xxx-large; 
 }
 
 .highlight *::-moz-selection {

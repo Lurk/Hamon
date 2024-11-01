@@ -89,6 +89,10 @@ a.second:hover {
   text-decoration: underline;
 }
 
+a.second:focus{
+    outline: none;
+}
+
 #content,
 #footer {
   display: flex;

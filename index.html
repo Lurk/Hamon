@@ -8,13 +8,7 @@
 {%- block og_url -%}{{- config.domain -}}{%- endblock -%}
 {%- block content -%}
   <div class="post">
-    <img
-      class="title-image"
-      src="{{- get_image_url(src = page.metadata.image, width = 1000, height = 682) | safe -}}"
-      alt="{{- page.metadata.title -}}"
-      sizes="(min-width: 1000px) 1000px, (min-width: 780px) 780px, (min-width: 340px) 340px"
-      srcset="{{- prepare_srcset_for_cloudinary_image(src=page.metadata.image, breakpoints=[1000,780,340]) | safe -}}" 
-    />
+    {{- common::image(src = page.metadata.image, alt = page.metadata.title) -}}
     {{- yamd::yamd(nodes=page.content.body) -}}
   </div>
   {%- for tag in config.template_config.index_tags -%}

@@ -74,3 +74,13 @@
 {{- name -}}
 {%- endif -%}
 {%- endmacro -%}
+
+{%-macro image(src, alt)-%}
+<picture>
+  <source media="(max-width: 341px)" srcset="{{- get_image_url(src = src, width = 340) | safe -}}">
+  <source media="(max-width: 781px)" srcset="{{- get_image_url(src = src, width = 780) | safe -}}">
+  <source media="(max-width: 1001px)" srcset="{{- get_image_url(src =src , width = 1000) | safe -}}">
+  <img src="{{- get_image_url(src = src, width = 1000) | safe -}}" alt="{{- alt -}}" loading="lazy">
+</picture>
+{%- endmacro -%}
+

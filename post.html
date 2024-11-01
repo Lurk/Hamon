@@ -18,12 +18,7 @@
 {%- endblock -%}
 {%- block content -%}
   <article class="post">
-    <picture>
-      <source media="(max-width: 341px)" srcset="{{- get_image_url(src = page.metadata.image, width = 340) | safe -}}">
-      <source media="(max-width: 781px)" srcset="{{- get_image_url(src = page.metadata.image, width = 780) | safe -}}">
-      <source media="(max-width: 1001px)" srcset="{{- get_image_url(src = page.metadata.image, width = 1000) | safe -}}">
-      <img src="{{- get_image_url(src = page.metadata.image, width = 1000) | safe -}}" alt="{{- page.metadata.title -}}" loading="lazy">
-    </picture>
+    {{- common::image(src = page.metadata.image, alt = page.metadata.title) -}}
     <h1 class="title">{{- title -}}</h1>
     {{- yamd::yamd(nodes=page.content.body) -}}
     <div class="metadata">

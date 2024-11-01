@@ -77,6 +77,11 @@ a:hover {
 a.second {
   color: var(--dark);
   text-decoration: none;
+  margin-right: 0.5ch;
+}
+
+a.second:target {
+  scroll-margin-top: 2.5rem;
 }
 
 a.second:hover {

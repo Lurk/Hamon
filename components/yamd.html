@@ -26,6 +26,7 @@
 
 {%- macro H(node) -%}
 <h{{- node.level -}}>
+<a id="{{- yamd::stringify_heading(body = node.body) -}}" href="#{{- yamd::stringify_heading(body = node.body) -}}" class="second">#</a>
 {%- for n in node.body-%}
 {%- if n.type == 'Text' -%}
 {{- n.value -}}
@@ -214,3 +215,14 @@
   </div>
 </div>
 {%- endmacro -%}
+
+
+{%- macro stringify_heading(body) -%}
+{%- for n in body -%}
+{%- if n.type == 'Text' -%}
+{{- n.value -}}
+{%- elif n.type == 'Anchor' -%}
+{{- n.value.text -}}
+{%- endif -%}
+{%- endfor -%}
+{%- endmacro stringify_heading -%}

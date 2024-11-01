@@ -292,6 +292,7 @@ a.second:focus{
   color: var(--extra-dark);
   padding: 0 1ch;
   text-decoration: none;
+  height: min-content;
 }
 
 .tags a:hover{

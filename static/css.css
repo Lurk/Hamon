@@ -155,6 +155,7 @@ a.second:focus{
   flex-wrap: wrap;
   justify-content: center;
   gap: 2px;
+  margin-bottom: 1rem;
 }
 
 .ig .thumb img {
@@ -212,10 +213,11 @@ a.second:focus{
   align-items: center;
 }
 
-.ig .image div picture {
+.ig .image div img {
   width: 100%;
   aspect-ratio: 16/9;
   border-radius: 0.15rem;
+  margin:0;
 }
 
 .ig .image:not(:has(> div:target)) > :first-child {
@@ -306,9 +308,10 @@ a.second:focus{
   border-radius: 0.15rem;
 }
 
-.post img {
+.post picture img {
   width: 100%;
   border-radius: 0.15rem;
+  margin: 0 0 1rem 0;
 }
 
 .post p {
@@ -340,6 +343,7 @@ a.second:focus{
 .post iframe {
   width: 100%;
   height: 20rem;
+  margin-bottom: 1rem;
 }
 
 .post .head {
@@ -367,6 +371,7 @@ h4,
 h5,
 h6 {
   padding: 0 1rem;
+  margin: 0 0 1rem 0;
 }
 
 .post h2 + h5 {

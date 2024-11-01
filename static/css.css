@@ -215,9 +215,6 @@ a.second:focus{
 }
 
 .ig .image div img {
-  width: 100%;
-  aspect-ratio: 16/9;
-  border-radius: 0.15rem;
   margin:0;
 }
 
@@ -262,6 +259,7 @@ a.second:focus{
   flex-direction: row;
 }
 
+color: var(--medium);
 .nav a{
   text-decoration: none;
 }
@@ -313,6 +311,11 @@ a.second:focus{
   width: 100%;
   border-radius: 0.15rem;
   margin: 0 0 1rem 0;
+}
+
+.post picture{
+  width:100%;
+  aspect-ratio: 16/9;
 }
 
 .post p {

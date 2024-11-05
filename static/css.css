@@ -263,7 +263,7 @@ a.second:focus{
   text-decoration: none;
 }
 
-.nav .b{
+.nav a:first-of-type{
   font-weight: bold;
 }
 

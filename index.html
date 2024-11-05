@@ -2,7 +2,7 @@
 {%- import "components/yamd.html" as yamd -%}
 
 {%- extends "base.html" -%}
-{%- block og_image -%}{%- set page= get_page_by_path( path = config.template_config.index_post  ) -%}
+{%- block og_image -%}{%- set page= get_page_by_pid( pid = config.template_config.index_article_id  ) -%}
   {{- get_image_url(src = page.metadata.image, width = 1012, height = 682) | safe -}}
 {%- endblock -%}
 {%- block og_url -%}{{- config.domain -}}{%- endblock -%}

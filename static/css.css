@@ -461,6 +461,14 @@ iframe.komoot {
   border-top: 1px solid var(--dark);
 }
 
+.collapsible .body :first-child{
+  margin-top:0;
+}
+
+.collapsible .body :last-child{
+  margin-bottom:0;
+}
+
 .highlight {
   width: 100%;
   display: grid;

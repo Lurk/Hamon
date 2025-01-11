@@ -333,8 +333,9 @@ a.second:focus{
   background-color: var(--extra-dark);
   padding: 1rem;
   overflow-x: scroll;
-  font-size: 0.9rem;
+  font-size: 0.7rem;
   border: 2px solid var(--dark);
+  font-weight: normal;
 }
 
 .post code {

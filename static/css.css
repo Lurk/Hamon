@@ -341,7 +341,6 @@ a.second:focus {
   padding: 1rem;
   overflow-x: scroll;
   font-size: 0.7rem;
-  border: 1px solid var(--dark);
   border-radius: var(--border-radius);
   font-weight: normal;
 }
@@ -468,19 +467,6 @@ iframe.komoot {
   background-color: var(--darker);
   overflow: hidden;
   border-top: 1px solid var(--dark);
-}
-
-.collapsible .body>:first-child {
-  border-top: none;
-}
-
-.collapsible .body>:last-child {
-  border-bottom: none;
-}
-
-.collapsible .body * {
-  border-left: none;
-  border-right: none;
 }
 
 .highlight {
@@ -679,13 +665,8 @@ iframe.komoot {
     margin-bottom: -8.5rem;
   }
 
-  .post pre code {
-    border: none;
-    border-top: 1px solid var(--dark);
-    border-bottom: 1px solid var(--dark);
-  }
-
 }
+
 
 @media print,
 (-webkit-min-device-pixel-ratio: 1.25),

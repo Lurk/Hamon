@@ -309,6 +309,9 @@ a.second:focus {
   color: var(--extra-dark);
 }
 
+.post>* {
+  margin: 0 0 1rem 0;
+}
 
 .post picture img {
   width: 100%;
@@ -422,6 +425,10 @@ iframe.komoot {
   width: 100%;
   aspect-ratio: 1/1;
   height: auto;
+}
+
+.collapsible+.collapsible {
+  margin-top: -1rem;
 }
 
 .collapsible {

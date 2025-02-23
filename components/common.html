@@ -83,10 +83,13 @@
 
 {%-macro image(src, alt)-%}
 <picture>
-  <source media="(max-width: 341px)" srcset="{{- get_image_url(src = src, width = 340) | safe -}}">
-  <source media="(max-width: 781px)" srcset="{{- get_image_url(src = src, width = 780) | safe -}}">
-  <source media="(max-width: 1001px)" srcset="{{- get_image_url(src =src , width = 1000) | safe -}}">
   <source media="(display-mode: fullscreen)" srcset="{{- get_image_url(src =src , width = 2000) | safe -}}">
+  <source media="(min-width: 1001px) and (min-resolution: 2x)" srcset="{{- get_image_url(src =src , width = 2000) | safe -}}">
+  <source media="(min-width: 1001px)" srcset="{{- get_image_url(src =src , width = 1000) | safe -}}">
+  <source media="(min-width: 781px) and (min-resolution: 2x)" srcset="{{- get_image_url(src = src, width = 1560) | safe -}}">
+  <source media="(min-width: 781px)" srcset="{{- get_image_url(src = src, width = 780) | safe -}}">
+  <source media="(min-width: 341px) and (min-resolution: 2x)" srcset="{{- get_image_url(src = src, width = 680 ) | safe -}}">
+  <source media="(min-width: 341px)" srcset="{{- get_image_url(src = src, width = 340) | safe -}}">
   <img src="{{- get_image_url(src = src, width = 1000) | safe -}}" alt="{{- alt -}}" loading="lazy">
 </picture>
 {%- endmacro -%}

@@ -83,6 +83,7 @@
 
 {%-macro image(src, alt)-%}
 <picture>
+  <source media="(display-mode: fullscreen) and (min-resolution: 2x)" srcset="{{- get_image_url(src =src , width = 3840) | safe -}}">
   <source media="(display-mode: fullscreen)" srcset="{{- get_image_url(src =src , width = 2000) | safe -}}">
   <source media="(min-width: 1001px) and (min-resolution: 2x)" srcset="{{- get_image_url(src =src , width = 2000) | safe -}}">
   <source media="(min-width: 1001px)" srcset="{{- get_image_url(src =src , width = 1000) | safe -}}">

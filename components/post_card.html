@@ -4,19 +4,39 @@
   <a href="{{-page.pid ~ '.html'-}}">
     <picture>
       <source
-        media="(max-width: 340px)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 338) | safe -}}"
+        media="(min-width: 1000px) and (min-resolution: 2x)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 640) | safe -}}"
+      />
+      <source
+        media="(min-width: 1000px)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 320) | safe -}}"
+      />
+      <source
+        media="(min-width: 700px) and (min-resolution: 2x)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 400) | safe -}}"
+      />
+      <source
+        media="(min-width: 700px)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 200) | safe -}}"
+      />
+      <source
+        media="(min-width: 500px) and (min-resolution: 2x)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 1000) | safe -}}"
       />
       <source
         media="(max-width: 500px)"
         srcset="{{- get_image_url(src = page.metadata.image, width = 500) | safe -}}"
       />
       <source
-        media="(max-width: 700px)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 700) | safe -}}"
+        media="(min-width: 340px) and (min-resolution: 2x)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 680) | safe -}}"
+      />
+      <source
+        media="(min-width: 340px)"
+        srcset="{{- get_image_url(src = page.metadata.image, width = 340) | safe -}}"
       />
       <img
-        src="{{- get_image_url(src = page.metadata.image, width = 338) | safe -}}"
+        src="{{- get_image_url(src = page.metadata.image, width = 640) | safe -}}"
         alt="{{- page.metadata.title -}}"
         loading="lazy"
       />

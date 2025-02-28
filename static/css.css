@@ -316,13 +316,13 @@ a.second:focus {
 .post picture img {
   width: 100%;
   border-radius: var(--border-radius);
-  margin: 0 0 1rem 0;
   aspect-ratio: 16/9;
 }
 
 .post picture {
   width: 100%;
   aspect-ratio: 16/9;
+  display: block;
 }
 
 .post p {

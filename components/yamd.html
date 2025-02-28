@@ -160,8 +160,10 @@
   <div class="thumb">
     {%- for image in node.body -%}
     <a href="#{{- image.alt -}}">
-      <img src="{{- get_image_url(src = image.src, width = 98, height = 98) | safe -}}" alt="{{- image.alt -}}"
-        loading="lazy" />
+      <picture>
+        <source media="(min-resolution: 2x)" srcset="{{- get_image_url(src = image.src , width = 196, height = 196) | safe -}}">
+        <img src="{{- get_image_url(src = image.src, width = 98, height = 98) | safe -}}" alt="{{- image.alt -}}" loading="lazy" />
+      </picture>
     </a>
     {%- endfor -%}
   </div>

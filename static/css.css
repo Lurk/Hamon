@@ -348,7 +348,8 @@ a.second:focus {
   font-weight: normal;
 }
 
-.post p code {
+.post p code,
+.post li code {
   color: var(--medium);
   background-color: var(--dark);
   padding: 0 0.3rem;

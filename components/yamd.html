@@ -101,13 +101,13 @@
 {%- macro List(node) -%}
 {%- if node.list_type == 'Unordered' -%}
 <ul>
-  {%- else -%}
-  <ol>
-    {%- endif -%}
+{%- else -%}
+<ol>
+{%- endif -%}
     {%- for list_item in node.body -%}
     {{- yamd::ListItem(node=list_item) -}}
     {%- endfor -%}
-    {%- if node.list_type == 'Unordered' -%}
+{%- if node.list_type == 'Unordered' -%}
 </ul>
 {%- else -%}
 </ol>
@@ -121,7 +121,7 @@
   {%- if inner_node.type == 'Text' -%}
   {{- inner_node.value -}}
   {%- elif inner_node.type == 'Bold' -%}
-  {{- yamd::B(nodes=inner_node.value) -}}
+  {{- yamd::B(nodes=inner_node.value.body) -}}
   {%- elif inner_node.type == 'Italic' -%}
   {{- yamd::I(node=inner_node.value) -}}
   {%- elif inner_node.type == 'Strikethrough' -%}

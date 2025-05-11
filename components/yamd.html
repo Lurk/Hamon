@@ -52,6 +52,8 @@
   {{- yamd::S(node=node.value) -}}
   {%- elif node.type == 'CodeSpan' -%}
   {{- yamd::InlineCode(node=node.value) -}}
+  {%- elif node.type == 'Emphasis' -%}
+  {{- yamd::Emphasis(node=node.value) -}}
   {%- endif -%}
   {%- endfor -%}
 </p>
@@ -89,6 +91,10 @@
 {%- macro InlineCode(node) -%}
 <code>{{- node -}}</code>
 {%- endmacro InlineCode -%}
+
+{%- macro Emphasis(node) -%}
+<em>{{- node -}}</em>
+{%- endmacro Emphasis -%}
 
 {%- macro Image(node) -%}
 {{- common::image(src = node.src, alt = node.alt)-}}

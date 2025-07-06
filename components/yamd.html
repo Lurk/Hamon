@@ -12,8 +12,8 @@
 {{- yamd::List(node=node.value) -}}
 {%- elif node.type == 'Images' -%}
 {{- yamd::ImageGallery(node=node.value) -}}
-{%- elif node.type == 'Divider' -%}
-{{- yamd::Divider() -}}
+{%- elif node.type == 'ThematicBreak' -%}
+{{- yamd::ThematicBreak() -}}
 {%- elif node.type == 'Embed' -%}
 {{- yamd::Embed(node=node.value) -}}
 {%- elif node.type == 'Collapsible' -%}
@@ -149,14 +149,14 @@
 <div class="ig">
   <div class="image">
     {%- for node in node.body -%}
-    <div id="{{- node.alt -}}">
+    <div id="{{- node.src | crc32 -}}">
       {%- if loop.index0 > 0 -%}
       {%- set previous = node.body | nth(n=loop.index0 - 1) -%}
-        <a class="left" href="#{{- previous.alt -}}">⟨</a>
+        <a class="left" href="#{{- previous.src | crc32 -}}">⟨</a>
       {%- endif -%}
       {%- if not loop.last -%}
       {%- set next = node.body | nth(n=loop.index) -%}
-        <a class="right" href="#{{- next.alt -}}">⟩</a>
+        <a class="right" href="#{{- next.src | crc32 -}}">⟩</a>
       {%- endif -%}
       {{- common::image(src = node.src, alt = node.alt) -}}
     </div>
@@ -165,7 +165,7 @@
   </div>
   <div class="thumb">
     {%- for image in node.body -%}
-    <a href="#{{- image.alt -}}">
+      <a href="#{{- image.src | crc32 -}}">
       <picture>
         <source media="(min-resolution: 2x)" srcset="{{- get_image_url(src = image.src , width = 196, height = 196) | safe -}}">
         <img src="{{- get_image_url(src = image.src, width = 98, height = 98) | safe -}}" alt="{{- image.alt -}}" loading="lazy" />
@@ -176,9 +176,9 @@
 </div>
 {%- endmacro ImageGallery -%}
 
-{%- macro Divider() -%}
+{%- macro ThematicBreak() -%}
 <hr />
-{%- endmacro Divider -%}
+{%- endmacro ThematicBreak -%}
 
 {%- macro Embed(node) -%}
 {%- if node.kind | lower == 'youtube' -%}

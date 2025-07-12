@@ -334,10 +334,6 @@ a.second:focus {
   padding: 0 3rem;
 }
 
-.post pre {
-  margin: 0;
-}
-
 .post pre:has(>code) {
   display: block;
   background-color: var(--extra-dark);

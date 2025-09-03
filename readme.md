@@ -31,3 +31,20 @@ index_tags:
   - books
   - music
 ```
+
+### footer
+
+#### social
+
+List of social links.
+
+For example:
+
+```yaml
+footer:
+  social:
+    github: 'https://github.com/Lurk'
+    mastodon: 'https://mas.to/@barhamon'
+    facebook: 'https://www.facebook.com/bargamon/'
+    instagram: 'https://www.instagram.com/fedorpupkin/'
+```

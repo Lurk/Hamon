@@ -172,7 +172,7 @@ a.second:focus {
   border-radius: var(--border-radius);
 }
 
-.ig .image {
+.image {
   margin-bottom: 2px;
   position: relative;
   min-height: 5rem;
@@ -182,7 +182,7 @@ a.second:focus {
   display: none;
 }
 
-.ig .image a {
+.image a {
   position: absolute;
   text-decoration: none;
   transition: opacity 0.1s ease;
@@ -196,11 +196,11 @@ a.second:focus {
   text-shadow: 3px 0 3px var(--darker), -3px 0 3px var(--darker), 0 3px 3px var(--darker), 0 -3px 3px var(--darker);
 }
 
-.ig .image a:hover {
+.image a:hover {
   opacity: 0.6;
 }
 
-.ig .image .fullscreen {
+.image .fullscreen {
   bottom: 0;
   right: 0;
 }
@@ -309,7 +309,8 @@ a.second:focus {
   color: var(--extra-dark);
 }
 
-.post>* {
+.post>*,
+.collapsible .body>* {
   margin: 0 0 1rem 0;
 }
 
@@ -474,7 +475,10 @@ iframe.komoot {
   display: none;
   background-color: var(--darker);
   overflow: hidden;
-  border-top: 1px solid var(--dark);
+}
+
+.collapsible .body :last-child {
+  margin-bottom: 0;
 }
 
 .highlight {
@@ -736,6 +740,13 @@ iframe.komoot {
   h3 {
     page-break-after: avoid;
   }
+}
+
+.gpx-embed {
+  font-size: 0.8rem;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: right;
 }
 
 /*

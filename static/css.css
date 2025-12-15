@@ -679,6 +679,13 @@ iframe.komoot {
 
 }
 
+@media (pointer:none),
+(pointer:coarse) {
+  .fullscreen {
+    display: none;
+  }
+}
+
 
 @media print,
 (-webkit-min-device-pixel-ratio: 1.25),

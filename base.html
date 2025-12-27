@@ -34,7 +34,7 @@
     <div class="container">
       <div class="grid">
         <div class="column">
-          <span>Subscribe by:</span>
+          <span>Subscribe:</span>
           <div class="row with-icon">
             {{- common::Icon(name="json_feed") -}}
             <a href="{{- add_feed(path="/feed.json", type="json") -}}">JSON Feed</a>
@@ -45,7 +45,7 @@
           </div>
         </div>
         <div class="column">
-          <span>You can find me at:</span>
+          <span>Links:</span>
           {%- for key, value in config.template_config.footer.social -%}
           <div class="row with-icon">
             {{- common::Icon(name=key) -}}

@@ -1,6 +1,5 @@
 {%- extends "base.html" -%}
 {%- import "components/common.html" as common -%}
-{%- import "components/yamd.html" as yamd -%}
 
 
 {%- block og_image -%}
@@ -20,7 +19,7 @@
   <article class="post">
     {{- common::image(src = page.metadata.image, alt = page.metadata.title) -}}
     <h1 class="title">{{- title -}}</h1>
-    {{- yamd::yamd(nodes=page.content.body) -}}
+    {{- rendered_body | safe -}}
     <div class="metadata">
       <div>
         tags:

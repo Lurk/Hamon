@@ -20,6 +20,7 @@
   <link rel="manifest" href="{{- get_static_file( path = '/site.webmanifest' ) | safe -}}" />
   <script type="text/javascript" src="{{- get_static_file( path = '/js.js' ) | safe -}}"></script>
   <meta name="theme-color" content="#2b2a2a" />
+  {%- if fragment_styles -%}<style>{{ fragment_styles | safe }}</style>{%- endif -%}
   {%- block head -%}{%- endblock head -%}
 </head>
 <body>

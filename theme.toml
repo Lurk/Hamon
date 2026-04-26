@@ -1,0 +1,15 @@
+[theme]
+name = "hamon"
+version = "1.0.0"
+description = "Default theme for bar"
+compatible_bar_versions = ">=0.2.0"
+tags = ["minimal", "blog"]
+
+[render]
+lazy_images = true
+heading_anchors = true
+code_class = "code"
+
+[render.fragments.icon]
+template = "fragments/icon.html"
+css = "fragments/icon.css"

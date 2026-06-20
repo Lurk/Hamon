@@ -9,7 +9,3 @@ tags = ["minimal", "blog"]
 lazy_images = true
 heading_anchors = true
 code_class = "code"
-
-[render.fragments.icon]
-template = "fragments/icon.html"
-css = "fragments/icon.css"

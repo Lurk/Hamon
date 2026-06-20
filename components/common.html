@@ -88,16 +88,11 @@
 {%- endmacro -%}
 
 {%-macro image(src, alt)-%}
-<picture>
-  <source media="(display-mode: fullscreen) and (min-resolution: 2x)" srcset="{{- get_image_url(src = src , width = 3840) | safe -}}">
-  <source media="(display-mode: fullscreen)" srcset="{{- get_image_url(src = src , width = 2016) | safe -}}">
-  <source media="(min-width: 1008px) and (min-resolution: 2x)" srcset="{{- get_image_url(src = src , width = 2016) | safe -}}">
-  <source media="(min-width: 1008px)" srcset="{{- get_image_url(src = src , width = 1008) | safe -}}">
-  <source media="(min-width: 784px) and (min-resolution: 2x)" srcset="{{- get_image_url(src = src, width = 1568) | safe -}}">
-  <source media="(min-width: 784px)" srcset="{{- get_image_url(src = src, width = 784) | safe -}}">
-  <source media="(min-width: 352px) and (min-resolution: 2x)" srcset="{{- get_image_url(src = src, width = 704 ) | safe -}}">
-  <source media="(min-width: 352px)" srcset="{{- get_image_url(src = src, width = 352) | safe -}}">
-  <img src="{{- get_image_url(src = src, width = 1008) | safe -}}" alt="{{- alt -}}" loading="lazy">
-</picture>
+{%- set srcset = get_srcset(src = src) -%}
+{%- set fallback_src = srcset | split(pat=",") | first | trim | split(pat=" ") | first -%}
+<div class="image">
+  <img src="{{- fallback_src -}}" srcset="{{- srcset | safe -}}" sizes="(min-width: 1008px) 1008px, 100vw" alt="{{- alt -}}" loading="lazy">
+  <a class="fullscreen" onclick="document.fullscreenElement?document.exitFullscreen():this.previousElementSibling.requestFullscreen()">&#x26F6;</a>
+</div>
 {%- endmacro -%}
 

@@ -6,6 +6,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{- title -}}</title>
+  {%- if fragment_styles -%}<style>{{ fragment_styles | safe }}</style>{%- endif -%}
   <link rel="stylesheet" href="{{- get_static_file( path = '/css.css' ) | safe -}}" />
   <link rel="alternate" type="application/feed+json" title="JSON Feed" href="{{- add_feed(path="/feed.json", type="json") -}}">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="{{- add_feed(path="/feed.xml", type="atom") -}}">
@@ -18,9 +19,7 @@
   <link rel="icon" href="{{- get_static_file( path = '/icon.svg' ) | safe -}}" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="{{- get_static_file( path = '/icon.png' ) | safe -}}" />
   <link rel="manifest" href="{{- get_static_file( path = '/site.webmanifest' ) | safe -}}" />
-  <script type="text/javascript" src="{{- get_static_file( path = '/js.js' ) | safe -}}"></script>
   <meta name="theme-color" content="#2b2a2a" />
-  {%- if fragment_styles -%}<style>{{ fragment_styles | safe }}</style>{%- endif -%}
   {%- block head -%}{%- endblock head -%}
 </head>
 <body>

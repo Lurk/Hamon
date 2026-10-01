@@ -239,7 +239,7 @@ a.second:focus {
 }
 
 .post>*,
-.collapsible .body>* {
+.collapsible>.body>* {
 	margin: 0 0 1rem 0;
 }
 
@@ -418,12 +418,12 @@ iframe.komoot {
 	transition: transform 0.2s ease;
 }
 
-.collapsible .body {
+.collapsible>.body {
 	background-color: var(--darker);
 	overflow: hidden;
 }
 
-.collapsible .body :last-child {
+.collapsible>.body :last-child {
 	margin-bottom: 0;
 }
 

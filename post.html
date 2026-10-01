@@ -4,7 +4,8 @@
 
 {%- block og_image -%}
   {%- set page= get_page_by_path( path = path ) -%}
-  {{- get_image_url(src = page.metadata.image, width = 1012, height = 682) | safe -}}
+  {%- set img = get_image_url(src = page.metadata.image, width = 1012, height = 682) -%}
+  {%- if img is starting_with("/") -%}{{- config.domain -}}{{- img | trim_start_matches(pat="/") -}}{%- else -%}{{- img | safe -}}{%- endif -%}
 {%- endblock -%}
 {%- block og_type -%}article{%- endblock -%}
 {%- block og_url -%}{{- config.domain -}}{{- path | trim_start_matches(pat="/") -}}{%- endblock -%}

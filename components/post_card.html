@@ -2,45 +2,13 @@
 
 <div class="card">
   <a href="{{-page.pid ~ '.html'-}}">
-    <picture>
-      <source
-        media="(min-width: 1000px) and (min-resolution: 2x)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 640) | safe -}}"
-      />
-      <source
-        media="(min-width: 1000px)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 320) | safe -}}"
-      />
-      <source
-        media="(min-width: 700px) and (min-resolution: 2x)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 400) | safe -}}"
-      />
-      <source
-        media="(min-width: 700px)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 200) | safe -}}"
-      />
-      <source
-        media="(min-width: 500px) and (min-resolution: 2x)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 1000) | safe -}}"
-      />
-      <source
-        media="(max-width: 500px)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 500) | safe -}}"
-      />
-      <source
-        media="(min-width: 340px) and (min-resolution: 2x)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 680) | safe -}}"
-      />
-      <source
-        media="(min-width: 340px)"
-        srcset="{{- get_image_url(src = page.metadata.image, width = 340) | safe -}}"
-      />
-      <img
-        src="{{- get_image_url(src = page.metadata.image, width = 640) | safe -}}"
-        alt="{{- page.metadata.title -}}"
-        loading="lazy"
-      />
-    </picture>
+    <img
+      src="{{- get_image_url(src = page.metadata.image, width = 640) | safe -}}"
+      srcset="{{- get_image_url(src = page.metadata.image, width = 320) | safe }} 320w, {{- get_image_url(src = page.metadata.image, width = 500) | safe }} 500w, {{- get_image_url(src = page.metadata.image, width = 640) | safe }} 640w, {{- get_image_url(src = page.metadata.image, width = 1000) | safe }} 1000w"
+      sizes="(min-width: 1000px) 320px, (min-width: 701px) 31vw, 100vw"
+      alt="{{- page.metadata.title -}}"
+      loading="lazy"
+    />
   </a>
   <div class="card-body">
     <h3>

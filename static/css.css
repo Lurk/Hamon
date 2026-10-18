@@ -204,14 +204,14 @@ a.second:focus {
 	font-weight: bold;
 }
 
-.nav a:last-of-type {
+.nav a:not(:first-of-type) {
 	background: var(--medium);
 	text-shadow: none;
 	color: var(--extra-dark);
 	padding: 0 1ch;
 }
 
-.nav a:last-of-type:hover {
+.nav a:not(:first-of-type):hover {
 	background: var(--light);
 	text-shadow: none;
 	color: var(--extra-dark);
@@ -423,7 +423,7 @@ iframe.komoot {
 	overflow: hidden;
 }
 
-.collapsible>.body :last-child {
+.collapsible>.body>:last-child {
 	margin-bottom: 0;
 }
 
